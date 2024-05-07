@@ -1,6 +1,6 @@
 import express from "express";
 import ViteExpress from "vite-express";
-import { User } from "../db/model.js";
+import { Product, User } from "../db/model.js";
 import morgan from "morgan";
 
 const app = express();
@@ -29,6 +29,11 @@ app.post("/api/login", async (req, res) => {
       } else {
         res.json({user: null})
       }
+})
+
+app.get("/api/products", async (req, res) => {
+    const products = await Product.findAll()
+    res.json({products: products})
 })
 
 ViteExpress.listen(app, port, () =>

@@ -1,40 +1,23 @@
-import { useState } from 'react'
-import axios from 'axios'
-import './App.css'
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
+import Root from "./Root.jsx";
+import Home from "./pages/Home.jsx";
+import './css/App.css'
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<Root />}>
+      <Route index element={<Home/>}/>
+    </Route>
+    )
+  );
 
 function App() {
-
-  const [isLoggedIn, setIsLoggedIn]=  useState(false)
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-
-    await axios.post("/api/login", {username: event.target.username.value, password: event.target.password.value}).then((res) => {
-      console.log(res.data.user)
-    })
-  }
-
-  return (
-    <>
-    {isLoggedIn ? 
-      <>
-      <h1>Logged</h1>
-      </>
-      :
-      <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      <label for="username">Username: </label>
-      <input name='username'></input>
-      <br/>
-      <label for="password">Password: </label>
-      <input name='password' type='password'></input>
-      <br/>
-      <button>Submit</button>
-      </form>
-    
-    }
-    </>
-  )
+  return <RouterProvider router={router} />;
 }
 
 export default App
