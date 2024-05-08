@@ -1,0 +1,13 @@
+.productCard {
+    width: 20vw;
+    margin: 2rem;
+    padding: 1rem;
+    border: black 3px solid;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #000;
+    /* display: inline-block; */
+}
+
+.productImg{
+    max-width: 10vw;
+}

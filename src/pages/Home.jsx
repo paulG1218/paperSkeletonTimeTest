@@ -1,11 +1,18 @@
 import { useState } from 'react'
 import ProductCard from '../components/ProductCard.jsx'
+import { useLoaderData } from "react-router-dom";
+import { Row } from 'react-bootstrap';
 import axios from 'axios'
 
 const Home = () => {
+
+    const {products} = useLoaderData()
   
     const [userState, setUserState]=  useState({})
-    const [productMap, setProductMap] = useState([])
+
+    const productCards = products.map((product) => {
+        return <ProductCard key={product.productId} title={product.title} description={product.description} image={product.image}/>
+    })
   
     const handleSubmit = async (event) => {
       event.preventDefault()
@@ -14,38 +21,16 @@ const Home = () => {
         console.log(res.data.user)
         if (res.data.user) {
           setUserState(res.data.user)
-          const products = await axios.get("/api/products").then((res) => {
-            return res.data.products
-          })
-          console.log(products)
-          setProductMap(products.map((product) => {
-            console.log(product)
-            return <ProductCard key={product.productId} title={product.title} description={product.description} image={product.image}/>
-          }))
         }
       })
     }
   
     return (
       <>
-      {userState.userId ? 
-        <>
         <h1>Logged</h1>
-        {productMap}
-        </>
-        :
-        <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">Username: </label>
-        <input name='username'></input>
-        <br/>
-        <label htmlFor="password">Password: </label>
-        <input name='password' type='password'></input>
-        <br/>
-        <button>Submit</button>
-        </form>
-      
-      }
+        <Row md={3}>
+            {productCards}
+        </Row>
       </>
     )
 }
