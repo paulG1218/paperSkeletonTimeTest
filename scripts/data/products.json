@@ -1,7 +1,52 @@
 [
     {
-        "title": "stuff",
-        "description": "about stuff",
-        "image": "url"
+        "title": "Lego City Police Station",
+        "description": "A police station set complete with vehicles, officers, and crooks for kids to build their city.",
+        "image": "https://i5.walmartimages.com/seo/LEGO-City-Police-Station-60141-Building-Set-894-Pieces_8f5b39aa-98d7-44d3-ad11-a11591c80f74.8c07ed17e72df31e604e7e76d541218a.jpeg"
+    },
+    {
+        "title": "Barbie Dreamhouse",
+        "description": "A three-story playhouse filled with rooms and furniture to create imaginative stories.",
+        "image": "https://media.wired.com/photos/5926be4ecefba457b079b00b/master/w_2560%2Cc_limit/Barbie-Hello-DreamhouseTA.jpg"
+    },
+    {
+        "title": "Hot Wheels Track Builder",
+        "description": "Customizable track set with various pieces for kids to create their racing adventure.",
+        "image": "https://m.media-amazon.com/images/I/71SZ+uyRgbL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+        "title": "NERF Elite Blaster",
+        "description": "A foam dart blaster with a high-capacity rotating drum for rapid firing.",
+        "image": "https://m.media-amazon.com/images/I/71UXi6eLm-L.jpg"
+    },
+    {
+        "title": "Play-Doh Kitchen Creations",
+        "description": "A play set for children to mold their own imaginative treats and snacks.",
+        "image": "https://m.media-amazon.com/images/I/61eojOYKMJL._AC_UF894,1000_QL80_DpWeblab_.jpg"
+    },
+    {
+        "title": "Fisher-Price Little People Farm",
+        "description": "An interactive farm set with animal figures and barn doors that kids can open and close.",
+        "image": "https://m.media-amazon.com/images/I/81SRcqOGSlL._AC_UF894,1000_QL80_DpWeblab_.jpg"
+    },
+    {
+        "title": "Pokemon Battle Figure Pack",
+        "description": "A collection of battle figures featuring popular Pokémon characters for imaginative play.",
+        "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6554/6554293_sd.jpg"
+    },
+    {
+        "title": "Transformers Optimus Prime",
+        "description": "An action figure that converts from a robot to a truck for epic transformations.",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiY0QuE8pvWHNqT569Cv-sY2JbHEx8ItQTm4PX_cS0Wg&s"
+    },
+    {
+        "title": "Monopoly Junior",
+        "description": "A simplified version of the classic board game, designed for younger players.",
+        "image": "https://m.media-amazon.com/images/I/81zDdaJswTL._AC_UF894,1000_QL80_.jpg"
+    },
+    {
+        "title": "Magic: The Gathering Starter Kit",
+        "description": "A beginner's kit with cards and instructions to introduce players to the popular trading card game.",
+        "image": "https://m.media-amazon.com/images/I/81g1ZkNcCTL.jpg"
     }
 ]
