@@ -8,6 +8,7 @@ import Root from "./Root.jsx";
 import Home from "./pages/Home.jsx";
 import "./css/App.css";
 import axios from "axios";
+import Login from "./pages/Login.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
         const products = await axios.get("/api/products")
         return {products: products.data}
       }}/>
+      <Route path="/login" element={<Login/>}/>
     </Route>
   )
 );
