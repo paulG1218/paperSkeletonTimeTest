@@ -9,7 +9,7 @@ const Home = () => {
     const {products} = useLoaderData()
 
     const productCards = products.map((product) => {
-        return <ProductCard key={product.productId} title={product.title} description={product.description} image={product.image}/>
+        return <ProductCard key={product.productId} title={product.title} description={product.description} image={product.image} price={product.price}/>
     })
 
   

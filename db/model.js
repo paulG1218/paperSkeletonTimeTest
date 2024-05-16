@@ -59,6 +59,9 @@ export class User extends Model {
       },
       image: {
         type: DataTypes.STRING
+      },
+      price: {
+        type: DataTypes.FLOAT
       }
     },
     {
