@@ -30,12 +30,39 @@ const NavigationBar = () => {
     </Navbar>
     <hr className='navigationDivider'/>
     <Navbar className='navigationBar bottom'>
-      <Container >
+      <Container>
+        <Col>
         <Nav variant='underline'>
-          <NavDropdown title='Dropdown' className='fs-4'>
-            <NavDropdown.Item>A thing</NavDropdown.Item>
-          </NavDropdown>
+          <Col>
+          <Nav.Link className='fs-4'>Just in</Nav.Link>
+          </Col>
+          <Col>
+            <NavDropdown title='Men' className='fs-4'>
+              <NavDropdown.Item>A thing</NavDropdown.Item>
+            </NavDropdown>
+          </Col>
+          <Col>
+            <NavDropdown title='Women' className='fs-4'>
+              <NavDropdown.Item>A thing</NavDropdown.Item>
+            </NavDropdown>
+          </Col>
+          <Col>
+            <NavDropdown title='Accessories' className='fs-4'>
+              <NavDropdown.Item>A thing</NavDropdown.Item>
+            </NavDropdown>
+          </Col>
+          <Col>
+            <NavDropdown title='Shoes' className='fs-4'>
+              <NavDropdown.Item>A thing</NavDropdown.Item>
+            </NavDropdown>
+          </Col>
+          <Col>
+            <NavDropdown title='Sale' className='fs-4'>
+              <NavDropdown.Item>A thing</NavDropdown.Item>
+            </NavDropdown>
+          </Col>
         </Nav>
+        </Col>
       </Container>
     </Navbar>
     </>
