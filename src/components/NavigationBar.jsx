@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, Nav, Container, Row, Col, Form, InputGroup, Button, NavDropdown } from 'react-bootstrap'
 import { IoMdSearch } from "react-icons/io";
+import { FaCartShopping } from "react-icons/fa6";
 import "../css/NavigationBar.css"
 
 const NavigationBar = () => {
@@ -11,12 +12,15 @@ const NavigationBar = () => {
             <Navbar.Brand href="/" className='logo'><h1>LOGO</h1></Navbar.Brand>
             <Col>
             <Nav>
-            <Col xs={{span: 10, offset: 1}}>
+            <Col xs={{span: 9, offset: 1}}>
                 <InputGroup>
                   <Button variant='outline-secondary'><IoMdSearch /></Button>
                   <Form.Control type='search' placeholder='Search the store' className='border-secondary'/>
                 </InputGroup>
             </Col >
+            <Col xs={{span: 1}}>
+              <Nav.Link href='#cart'><FaCartShopping /></Nav.Link>
+            </Col>
             <Col xs={{span: 1}}>
               <Nav.Link href='/login' className='justify-self-end'>Login</Nav.Link>
             </Col>

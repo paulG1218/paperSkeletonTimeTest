@@ -5,9 +5,6 @@
     border: black 3px solid;
     border-radius: 5px;
     align-items: center;
-    & :hover {
-        box-shadow: 5px 5px 5px #000;
-    }
 }
 
 .productImg{
