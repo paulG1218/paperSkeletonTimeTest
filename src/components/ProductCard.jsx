@@ -7,7 +7,7 @@ const ProductCard = ({title, description, image}) => {
     <Card className='productCard' style={{width: '20rem'}}>
       <Card.Img src={image} alt={`image of ${title}`} className='productImg'/>
       <Card.Body>
-        <Card.Title>{title}</Card.Title>
+        <Card.Title><h4>{title}</h4></Card.Title>
         <Card.Text>{description}</Card.Text>
       </Card.Body>
     </Card>

@@ -1,52 +1,62 @@
 [
     {
-        "title": "Lego City Police Station",
-        "description": "A police station set complete with vehicles, officers, and crooks for kids to build their city.",
-        "image": "https://i5.walmartimages.com/seo/LEGO-City-Police-Station-60141-Building-Set-894-Pieces_8f5b39aa-98d7-44d3-ad11-a11591c80f74.8c07ed17e72df31e604e7e76d541218a.jpeg"
+        "title": "Vintage Denim Jacket",
+        "description": "Classic blue denim jacket, perfect for a casual day out or a stylish layering piece.",
+        "image": "https://example.com/images/vintage-denim-jacket.jpg",
+        "price": "$49.99"
     },
     {
-        "title": "Barbie Dreamhouse",
-        "description": "A three-story playhouse filled with rooms and furniture to create imaginative stories.",
-        "image": "https://media.wired.com/photos/5926be4ecefba457b079b00b/master/w_2560%2Cc_limit/Barbie-Hello-DreamhouseTA.jpg"
+        "title": "Black Leather Boots",
+        "description": "Durable and sleek black leather boots that pair well with both jeans and dresses.",
+        "image": "https://example.com/images/black-leather-boots.jpg",
+        "price": "$89.99"
     },
     {
-        "title": "Hot Wheels Track Builder",
-        "description": "Customizable track set with various pieces for kids to create their racing adventure.",
-        "image": "https://m.media-amazon.com/images/I/71SZ+uyRgbL._AC_UF894,1000_QL80_.jpg"
+        "title": "White Linen Shirt",
+        "description": "Breathable white linen shirt, ideal for summer days or a smart-casual look.",
+        "image": "https://example.com/images/white-linen-shirt.jpg",
+        "price": "$35.99"
     },
     {
-        "title": "NERF Elite Blaster",
-        "description": "A foam dart blaster with a high-capacity rotating drum for rapid firing.",
-        "image": "https://m.media-amazon.com/images/I/71UXi6eLm-L.jpg"
+        "title": "Pleated Midi Skirt",
+        "description": "Elegant pleated midi skirt in a neutral shade, versatile for office wear or an evening out.",
+        "image": "https://example.com/images/pleated-midi-skirt.jpg",
+        "price": "$42.99"
     },
     {
-        "title": "Play-Doh Kitchen Creations",
-        "description": "A play set for children to mold their own imaginative treats and snacks.",
-        "image": "https://m.media-amazon.com/images/I/61eojOYKMJL._AC_UF894,1000_QL80_DpWeblab_.jpg"
+        "title": "Graphic Tee",
+        "description": "Fun and trendy graphic tee featuring a bold print, perfect for a relaxed and stylish look.",
+        "image": "https://example.com/images/graphic-tee.jpg",
+        "price": "$24.99"
     },
     {
-        "title": "Fisher-Price Little People Farm",
-        "description": "An interactive farm set with animal figures and barn doors that kids can open and close.",
-        "image": "https://m.media-amazon.com/images/I/81SRcqOGSlL._AC_UF894,1000_QL80_DpWeblab_.jpg"
+        "title": "Silk Scarf",
+        "description": "Luxurious silk scarf with a colorful abstract print to add a pop of color to any outfit.",
+        "image": "https://example.com/images/silk-scarf.jpg",
+        "price": "$29.99"
     },
     {
-        "title": "Pokemon Battle Figure Pack",
-        "description": "A collection of battle figures featuring popular Pokémon characters for imaginative play.",
-        "image": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6554/6554293_sd.jpg"
+        "title": "Wool Fedora Hat",
+        "description": "Stylish wool fedora hat, an excellent accessory to elevate any winter ensemble.",
+        "image": "https://example.com/images/wool-fedora-hat.jpg",
+        "price": "$34.99"
     },
     {
-        "title": "Transformers Optimus Prime",
-        "description": "An action figure that converts from a robot to a truck for epic transformations.",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiY0QuE8pvWHNqT569Cv-sY2JbHEx8ItQTm4PX_cS0Wg&s"
+        "title": "Floral Print Dress",
+        "description": "Beautiful floral print dress with a flattering silhouette, perfect for spring and summer.",
+        "image": "https://example.com/images/floral-print-dress.jpg",
+        "price": "$58.99"
     },
     {
-        "title": "Monopoly Junior",
-        "description": "A simplified version of the classic board game, designed for younger players.",
-        "image": "https://m.media-amazon.com/images/I/81zDdaJswTL._AC_UF894,1000_QL80_.jpg"
+        "title": "Cashmere Sweater",
+        "description": "Soft and cozy cashmere sweater in a pastel color, a must-have for chilly days.",
+        "image": "https://example.com/images/cashmere-sweater.jpg",
+        "price": "$79.99"
     },
     {
-        "title": "Magic: The Gathering Starter Kit",
-        "description": "A beginner's kit with cards and instructions to introduce players to the popular trading card game.",
-        "image": "https://m.media-amazon.com/images/I/81g1ZkNcCTL.jpg"
+        "title": "High Waisted Jeans",
+        "description": "Comfortable and fashionable high waisted jeans, a versatile staple in any wardrobe.",
+        "image": "https://example.com/images/high-waisted-jeans.jpg",
+        "price": "$54.99"
     }
 ]

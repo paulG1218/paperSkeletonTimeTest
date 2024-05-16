@@ -28,7 +28,7 @@ const NavigationBar = () => {
             </Col>
       </Container>
     </Navbar>
-    <hr/>
+    <hr className='navigationDivider'/>
     <Navbar className='navigationBar bottom'>
       <Container >
         <Nav variant='underline'>

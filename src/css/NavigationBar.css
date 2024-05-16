@@ -2,3 +2,13 @@
     margin-bottom: 3rem;
     padding-bottom: 2rem;
 }
+
+.logo h1 {
+    /* font-family: "Bebas Neue", sans-serif; */
+    font-size: 60px;
+    padding-top: 10px;
+}
+
+.navigationDivider {
+    margin: 0px;
+}
