@@ -1,0 +1,77 @@
+.footer {
+    background-color: #FFECDA;
+}
+
+.bottom {
+    margin-bottom: 0;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #E13636;
+    padding-top: 10px;
+    margin-bottom: 70px;
+}
+
+h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h5 {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+p {
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+}
+.news-letter {
+    text-align: left;
+    height: 398px;
+    vertical-align: top;
+}
+
+.input-group {
+    padding-top: 30px;
+}
+
+.form-control {
+    max-height: 32px;
+    background-color: #FFECDA;
+    border-color: black;
+    max-width: 20rem;
+}
+
+.form-control:focus {
+    background-color: #FFECDA;
+    border-color: black;
+}
+
+.form-control::placeholder {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.subscribe-btn {
+    background-color: black;
+    border-color: black;
+    max-height: 32px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.subscribe-btn:hover {
+    background-color: black;
+    border-color: black;
+}
