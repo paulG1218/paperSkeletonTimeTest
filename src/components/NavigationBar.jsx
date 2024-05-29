@@ -17,7 +17,6 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import "../css/NavigationBar.css";
 
 const NavigationBar = () => {
-  //<img src='ViileaLogoV1.png' alt='LOGO' width="110px"/>
   return (
     <>
       <Navbar className="navigationBar top">
@@ -82,12 +81,12 @@ const NavigationBar = () => {
         <Container fluid>
           <Col>
             <Nav style={{"margin-left": "25vw", "margin-right": "20vw"}} variant="underline" >
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>new arrivals</Nav.Link>
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>men</Nav.Link>
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>women</Nav.Link>
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>accessories</Nav.Link>
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>shoes</Nav.Link>
-                <Nav.Link style={{"color": "black", "font-size": "14px"}}>sale</Nav.Link>
+                <Nav.Link href="/new" style={{"color": "black", "font-size": "14px"}}>new arrivals</Nav.Link>
+                <Nav.Link href="/men" style={{"color": "black", "font-size": "14px"}}>men</Nav.Link>
+                <Nav.Link href="/women" style={{"color": "black", "font-size": "14px"}}>women</Nav.Link>
+                <Nav.Link href="/accessories" style={{"color": "black", "font-size": "14px"}}>accessories</Nav.Link>
+                <Nav.Link href="/shoes" style={{"color": "black", "font-size": "14px"}}>shoes</Nav.Link>
+                <Nav.Link href="/sale" style={{"color": "black", "font-size": "14px"}}>sale</Nav.Link>
             </Nav>
           </Col>
         </Container>
