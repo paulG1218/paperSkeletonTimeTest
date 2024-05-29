@@ -1,11 +1,12 @@
 #root {
-  font-family: "Roboto", sans-serif;
+  font-family: "Montserrat", sans-serif;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
+  color: #000;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: #000;
 }
