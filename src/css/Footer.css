@@ -2,8 +2,14 @@
     background-color: #FFECDA;
 }
 
-.bottom {
+.footer.bottom {
     margin-bottom: 0;
+    padding-left: 72px;
+}
+
+.footer.top {
+    padding-left: 72px;
+    padding-top: 24px;
 }
 
 .footer-logo h1 {
@@ -14,12 +20,12 @@
     margin-bottom: 70px;
 }
 
-h2 {
+h2.news-letter {
     font-size: 40px;
     font-weight: 700;
 }
 
-h3 {
+h3.news-letter {
     font-size: 24px;
     font-weight: 700;
 }
@@ -37,7 +43,7 @@ p {
     font-weight: 600;
 }
 
-.news-letter {
+.news-letter.col-6 {
     text-align: left;
     height: 398px;
     vertical-align: top;

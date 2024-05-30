@@ -26,8 +26,8 @@ const Footer = () => {
       <Navbar className="footer bottom">
         <Container fluid>
                 <Col className="news-letter" xs={6}>
-                    <h2>Catch every deal.</h2>
-                    <h3>Subscribe to our newsletter for 10% off.</h3>
+                    <h2 className="news-letter">Catch every deal.</h2>
+                    <h3 className="news-letter">Subscribe to our newsletter for 10% off.</h3>
                     <InputGroup>
                         <Form.Control className="subscribe-input" placeholder="enter your email"></Form.Control>
                         <Button className="subscribe-btn">subscribe</Button>
