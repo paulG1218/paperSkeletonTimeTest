@@ -6,7 +6,7 @@
     margin-bottom: 0;
 }
 
-.logo h1 {
+.footer-logo h1 {
     font-size: 24px;
     font-weight: 700;
     color: #E13636;
@@ -36,6 +36,7 @@ p {
     font-size: 14px;
     font-weight: 600;
 }
+
 .news-letter {
     text-align: left;
     height: 398px;
@@ -46,24 +47,24 @@ p {
     padding-top: 30px;
 }
 
-.form-control {
+.subscribe-input.form-control {
     max-height: 32px;
     background-color: #FFECDA;
     border-color: black;
     max-width: 20rem;
 }
 
-.form-control:focus {
+.subscribe-input.form-control:focus {
     background-color: #FFECDA;
     border-color: black;
 }
 
-.form-control::placeholder {
+.subscribe-input.form-control::placeholder {
     font-size: 12px;
     font-weight: 400;
 }
 
-.subscribe-btn {
+.subscribe-btn.btn {
     background-color: black;
     border-color: black;
     max-height: 32px;
@@ -71,7 +72,7 @@ p {
     font-weight: 700;
 }
 
-.subscribe-btn:hover {
+.subscribe-btn.btn:hover {
     background-color: black;
     border-color: black;
 }

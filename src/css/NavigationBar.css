@@ -1,40 +1,115 @@
-.navigationBar {
+.category.nav-link {
+    color: black;
+    font-size: 14px;
+}
+
+.navigation-bar {
     background-color: #FFECDA;
 }
 
-.bottom {
-    margin-bottom: 3rem;
-    padding-bottom: 2rem;
+.top-navigation-container.container-fluid {
+    justify-content: space-around;
+    padding-top: 24px;
+}
+
+.bottom.navbar-light {
+    padding-top: 24px;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
 }
 
-.logo h1 {
+.logo-column.col {
+    text-align: left;
+    padding-left: 24px;
+}
+
+.search-column.col {
+    min-width: 40%;
+}
+
+.links-column.col {
+    display: flex;
+    justify-content: end;
+}
+
+h1.header-logo {
     font-size: 24px;
     font-weight: 700;
     color: #E13636;
-    padding-top: 10px;
+    margin-bottom: 0px;
+    align-self: center;
 }
 
-.searchButton {
-    font-size: 24px;
+.header-logo.navbar-brand {
+    display: flex;
+    width: fit-content;
+}
+
+.search-group.input-group {
     border: 1px solid #484343;
     border-radius: 4px;
-    border-right: none;
+    padding-top: 0px;
+    align-items: center;
+}
+
+a.search-button {
     background-color: #FFECDA;
     color: #484343;
+    border: none;
+    max-height: 24px;
+    padding-left: 5px;
 }
 
-.searchBar {
+.search-bar.form-control {
     padding-top: 4px;
     background-color: #FFECDA;
-    border: 1px solid #484343;
-    border-radius: 4px;
-    border-left: none;
-    width: 30vw;
+    border: none;
+}
+
+.search-bar.form-control:focus {
+    background-color: #FFECDA; 
+    border: none;
+}
+
+.search-bar.form-control::placeholder {
+    font-size: 12px;
     font-weight: 400;
-    &::placeholder {
-        font-weight: 400;
-        color: #484343;
-    }
+}
+
+p.login-link {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+p.favorites-link {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+p.cart-link {
+    color: black;
+    font-size: 14px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+svg.account-svg {
+    font-size: 18px;
+    vertical-align: top;
+    margin-top: 2px;
+    margin-right: 3px;
+}
+
+svg.search-svg {
+    font-size: 24px;
 }

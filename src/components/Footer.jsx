@@ -17,19 +17,19 @@ const Footer = () => {
   return (
     <>
       <Navbar className="footer top">
-        <Container>
-            <Navbar.Brand className="logo">
+        <Container fluid>
+            <Navbar.Brand className="footer-logo">
                 <h1>melon <img src="../../public/melon-icon.svg" alt="logo" /></h1>
             </Navbar.Brand>
         </Container>
       </Navbar>
       <Navbar className="footer bottom">
-        <Container >
+        <Container fluid>
                 <Col className="news-letter" xs={6}>
                     <h2>Catch every deal.</h2>
                     <h3>Subscribe to our newsletter for 10% off.</h3>
                     <InputGroup>
-                        <Form.Control placeholder="enter your email"></Form.Control>
+                        <Form.Control className="subscribe-input" placeholder="enter your email"></Form.Control>
                         <Button className="subscribe-btn">subscribe</Button>
                     </InputGroup>
                 </Col>
