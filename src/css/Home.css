@@ -1,0 +1,100 @@
+div.banner-1.row {
+    min-height: 566px;
+    background-color: #EBF2ED;
+    align-items: center;
+}
+
+.banner-1.title {
+    text-align: left;
+}
+
+h1.banner-1{
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 80px;
+}
+
+h3.banner-1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+h5.banner-1 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+h4.banner-1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+
+button.banner-1 {
+    background-color: #36E15C;
+    color: black;
+    width: 195px;
+    height: 64px;
+    margin-top: 24px;
+    border: none;
+}
+
+button.banner-1:hover {
+    background-color: #36E15C;
+    color: black;
+}
+
+button.banner-1.btn.btn-primary:active {
+    background-color: #36E15C;
+    color: black;
+}
+
+h3.categories-title {
+    font-weight: 700;
+}
+
+h6.categories-title {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.categories-title.row {
+    margin-top: 46px;
+    margin-bottom: 24px;
+}
+
+.categories.col {
+    max-width: fit-content;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.categories.col.hats {
+    max-width: 323px;
+}
+
+.athleisure {
+    align-self: flex-end;
+}
+
+h3.best-sellers {
+    font-weight: 700;
+}
+
+h6.best-sellers {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.best-sellers.row {
+    margin-top: 46px;
+    margin-bottom: 24px;
+}
+
+.products-row.row {
+    max-width: 1296px;
+    margin-left: auto;
+    margin-right: auto;
+}

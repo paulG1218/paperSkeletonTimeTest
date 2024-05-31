@@ -8,7 +8,6 @@
 }
 
 .top-navigation-container.container-fluid {
-    justify-content: space-around;
     padding-top: 24px;
 }
 
@@ -19,7 +18,6 @@
 }
 
 .logo-column.col {
-    text-align: left;
     padding-left: 24px;
 }
 
@@ -37,7 +35,6 @@ h1.header-logo {
     font-weight: 700;
     color: #E13636;
     margin-bottom: 0px;
-    align-self: center;
 }
 
 .header-logo.navbar-brand {
@@ -45,7 +42,7 @@ h1.header-logo {
     width: fit-content;
 }
 
-.search-group.input-group {
+div.search-group.input-group {
     border: 1px solid #484343;
     border-radius: 4px;
     padding-top: 0px;
@@ -55,7 +52,6 @@ h1.header-logo {
 a.search-button {
     background-color: #FFECDA;
     color: #484343;
-    border: none;
     max-height: 24px;
     padding-left: 5px;
 }
@@ -77,26 +73,18 @@ a.search-button {
 }
 
 p.login-link {
-    color: black;
-    font-size: 14px;
     margin-bottom: 0px;
-    margin-top: 0px;
     padding-right: 1rem;
     padding-left: 1rem;
 }
 
 p.favorites-link {
-    color: black;
-    font-size: 14px;
     margin-bottom: 0px;
-    margin-top: 0px;
     padding-right: 1rem;
     padding-left: 1rem;
 }
 
 p.cart-link {
-    color: black;
-    font-size: 14px;
     margin-bottom: 0px;
     margin-top: 0px;
     padding-right: 1rem;
