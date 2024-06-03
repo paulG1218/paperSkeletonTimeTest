@@ -101,3 +101,107 @@ svg.account-svg {
 svg.search-svg {
     font-size: 24px;
 }
+
+div.modal-dialog {
+    max-width: fit-content;
+    align-self: center;
+}
+
+div.modal-content {
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    background-color: #FAF9F8;
+    border-radius: 0px;
+    width: 414px;
+}
+
+div.modal-header {
+    border: none;
+    padding-bottom: 0px;
+    padding-top: 8px;
+}
+
+div.modal-body {
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 0px;
+}
+
+button.close-btn.btn.btn-primary {
+    background-color: #FAF9F8;
+    border: none;
+    color: black;
+    margin-left: auto;
+    padding: 0px;
+    font-size: 24px;
+}
+
+h3.modal-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+p.modal-subtitle {
+    margin-top: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+form.login-form {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+label.form-label {
+    margin-top: 40px;
+}
+
+input.form-control {
+    height: 50px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+input.form-check-input {
+    border-radius: 0px;
+    border: 2px solid black;
+}
+
+div.login-options {
+    display: flex;
+    padding-top: 15px;
+    justify-content: space-between;
+}
+
+a.forgot-password {
+   text-decoration: none;
+   font-weight: 600;
+}
+
+div.remember-check.form-check {
+    max-width: fit-content;
+}
+
+button.login-btn {
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    height: 44px;
+    margin-top: 40px;
+    margin-bottom: 8px;
+}
+
+button.register-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0px;
+    font-size: 14px;
+    font-weight: 600;
+    width: 100%;
+    height: 44px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+}

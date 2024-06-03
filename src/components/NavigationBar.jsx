@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -9,16 +9,44 @@ import {
   InputGroup,
   Button,
   NavDropdown,
+  Modal,
 } from "react-bootstrap";
 import { IoMdSearch } from "react-icons/io";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { VscAccount } from "react-icons/vsc";
 import { IoIosHeartEmpty } from "react-icons/io";
+import { MdOutlineClose } from "react-icons/md";
 import "../css/NavigationBar.css";
 
 const NavigationBar = () => {
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleOpen = () => setShow(true)
+
   return (
     <>
+    <Modal show={show} className="login-modal">
+      <Modal.Header>
+        <Button className="close-btn" onClick={handleClose}><MdOutlineClose /></Button>
+      </Modal.Header>
+      <Modal.Body>
+        <h3 className="modal-title">login</h3>
+        <p className="modal-subtitle">become a member — enjoy first dibs on new products and rewards</p>
+        <Form className="login-form"> 
+          <Form.Label>email</Form.Label>
+          <Form.Control type="email" />
+          <Form.Label>password</Form.Label>
+          <Form.Control type="password" />
+          <div className="login-options">
+            <Form.Check className="remember-check" type="check" label="remember me"/>
+            <a href="#forgot" className="forgot-password">forgot password?</a>
+          </div>
+          <Button className="login-btn">login</Button>
+          <Button className="register-btn">register</Button>
+        </Form>
+      </Modal.Body>
+    </Modal>
       <Navbar className="navigation-bar top">
         <Container fluid className="top-navigation-container">
           <Col className="logo-column">
@@ -41,7 +69,7 @@ const NavigationBar = () => {
             </InputGroup>
           </Col>
           <Col className="links-column">
-            <Nav.Link href="/login">
+            <Nav.Link onClick={handleOpen}>
               <p className="login-link">
                 <VscAccount
                   className="account-svg"
@@ -58,7 +86,7 @@ const NavigationBar = () => {
                 favorites
               </p>
             </Nav.Link>
-            <Nav.Link>
+            <Nav.Link href="#cart">
               <p className="cart-link">
                 <MdOutlineShoppingCart
                   style={{ "font-size": "24px", "vertical-align": "top" }}

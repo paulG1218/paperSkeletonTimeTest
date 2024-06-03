@@ -17,7 +17,6 @@ const router = createBrowserRouter(
         const products = await axios.get("/api/products")
         return {products: products.data}
       }}/>
-      <Route path="/login" element={<Login/>}/>
     </Route>
   )
 );
