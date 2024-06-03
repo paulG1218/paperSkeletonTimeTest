@@ -13,10 +13,14 @@ import Login from "./pages/Login.jsx";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />}>
-      <Route index element={<Home />} loader={async () => {
-        const products = await axios.get("/api/products")
-        return {products: products.data}
-      }}/>
+      <Route
+        index
+        element={<Home />}
+        loader={async () => {
+          const products = await axios.get("/api/products");
+          return { products: products.data };
+        }}
+      />
     </Route>
   )
 );

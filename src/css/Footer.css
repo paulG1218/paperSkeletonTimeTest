@@ -30,17 +30,23 @@ h3.news-letter {
     font-weight: 700;
 }
 
-h5 {
+div.footer-link {
+    display: block;
+}
+
+h5.footer-link {
     text-align: left;
     font-size: 20px;
     font-weight: 400;
     margin-bottom: 30px;
 }
 
-p {
+a.footer-link {
+    color: black;
     text-align: left;
     font-size: 14px;
     font-weight: 600;
+    padding-left: 0px !important;
 }
 
 .news-letter.col-6 {
@@ -81,4 +87,9 @@ p {
 .subscribe-btn.btn:hover {
     background-color: black;
     border-color: black;
+}
+
+div.footer-link.col {
+    vertical-align: top;
+    height: 398px;
 }

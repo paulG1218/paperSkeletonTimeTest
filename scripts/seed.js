@@ -14,7 +14,7 @@ const usersInDB = await Promise.all(
     const newUser = User.create({
       username: username,
       password: password,
-      isAdmin: isAdmin
+      isAdmin: isAdmin,
     });
     return newUser;
   })
@@ -28,7 +28,7 @@ const productsInDB = await Promise.all(
       title: title,
       description: description,
       image: image,
-      price: price
+      price: price,
     });
     return newProduct;
   })
