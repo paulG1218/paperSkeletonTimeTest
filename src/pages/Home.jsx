@@ -12,6 +12,7 @@ const Home = () => {
     return (
       <ProductCard
         key={product.productId}
+        productId={product.productId}
         title={product.title}
         description={product.description}
         image={product.image}

@@ -40,6 +40,12 @@ app.get("/api/products", async (req, res) => {
   res.json(products);
 });
 
+app.get("/api/products/:productId", async (req, res) => {
+  const { productId } = req.params;
+  const product = await Product.findByPk(productId);
+  res.json(product);
+});
+
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)
 );

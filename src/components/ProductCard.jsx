@@ -1,11 +1,12 @@
 import React from "react";
-import { Card, Col } from "react-bootstrap";
+import { Card, Col, NavLink } from "react-bootstrap";
 import "../css/ProductCard.css";
 
-const ProductCard = ({ title, description, image, price }) => {
+const ProductCard = ({ title, description, image, price, productId }) => {
   return (
     <Col className="card-column">
-      <Card className="productCard">
+      <NavLink href={`/products/${productId}`}>
+      <Card className="productCard" >
         <Card.Img
           src={image}
           alt={`image of ${title}`}
@@ -17,6 +18,7 @@ const ProductCard = ({ title, description, image, price }) => {
           <Card.Text>${price}</Card.Text>
         </Card.Body>
       </Card>
+      </NavLink>
     </Col>
   );
 };

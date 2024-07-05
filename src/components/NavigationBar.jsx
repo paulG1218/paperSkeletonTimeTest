@@ -62,7 +62,7 @@ const NavigationBar = () => {
           <Col className="logo-column">
             <Navbar.Brand href="/" className="header-logo">
               <h1 className="header-logo">
-                melon <img src="../../public/melon-icon.svg" alt="logo" />
+                melon <img src="/melon-icon.svg" alt="logo" />
               </h1>
             </Navbar.Brand>
           </Col>
