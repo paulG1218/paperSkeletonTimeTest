@@ -23,12 +23,14 @@ const usersInDB = await Promise.all(
 console.log("Creating products...");
 const productsInDB = await Promise.all(
   productData.map((product) => {
-    const { title, description, image, price } = product;
+    const { title, description, image, price, colors, sizes } = product;
     const newProduct = Product.create({
       title: title,
       description: description,
       image: image,
       price: price,
+      colors: colors,
+      sizes: sizes
     });
     return newProduct;
   })

@@ -3,18 +3,12 @@ import {
   Navbar,
   Nav,
   Container,
-  Row,
   Col,
   Form,
   InputGroup,
   Button,
-  NavDropdown,
   Modal,
 } from "react-bootstrap";
-import { IoMdSearch } from "react-icons/io";
-import { MdOutlineShoppingCart } from "react-icons/md";
-import { VscAccount } from "react-icons/vsc";
-import { IoIosHeartEmpty } from "react-icons/io";
 import { MdOutlineClose } from "react-icons/md";
 import "../css/NavigationBar.css";
 
@@ -69,7 +63,7 @@ const NavigationBar = () => {
           <Col className="search-column">
             <InputGroup className="search-group">
               <Nav.Link className="search-button">
-                <IoMdSearch className="search-svg" />
+                <img src="/search.svg" alt="search" className="search-svg"/>
               </Nav.Link>
               <Form.Control
                 type="search"
@@ -81,17 +75,17 @@ const NavigationBar = () => {
           <Col className="links-column">
             <Nav.Link onClick={handleOpen}>
               <p className="login-link">
-                <VscAccount className="account-svg" /> login / register
+                <img src="/account.svg" alt="account" className="account-svg" /> login / register
               </p>
             </Nav.Link>
             <Nav.Link href="#favorites">
               <p className="favorites-link">
-                <IoIosHeartEmpty className="favorites-svg" /> favorites
+                <img src="/favorite.svg" alt="heart" className="favorites-svg" /> favorites
               </p>
             </Nav.Link>
             <Nav.Link href="#cart">
               <p className="cart-link">
-                <MdOutlineShoppingCart className="cart-svg" /> 0
+                <img src="/cart.svg" alt="cart" className="cart-svg" /> 0
               </p>
             </Nav.Link>
           </Col>

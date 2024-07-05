@@ -62,6 +62,12 @@ export class User extends Model {
       },
       price: {
         type: DataTypes.FLOAT
+      },
+      colors: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
+      }, 
+      sizes: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
       }
     },
     {

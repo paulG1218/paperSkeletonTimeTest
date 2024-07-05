@@ -60,6 +60,7 @@ a.search-button {
     padding-top: 4px;
     background-color: #FFECDA;
     border: none;
+    height: 32px;
 }
 
 .search-bar.form-control:focus {
@@ -103,14 +104,16 @@ svg.account-svg {
 
 svg.favorites-svg {
     font-size: 24px;
+    fill: black;
 }
 
 svg.cart-svg {
     font-size: 24px;
 }
 
-svg.search-svg {
-    font-size: 24px;
+img.search-svg {
+    width: 16.38px;
+    height: 16.39px;
 }
 
 div.modal-dialog {
