@@ -94,22 +94,22 @@ const NavigationBar = () => {
       <Navbar className="navigation-bar bottom">
         <Container className="category-container" fluid>
           <Nav variant="underline" className="justify-content-center" as={Col}>
-            <Nav.Link className="category" href="#new">
+            <Nav.Link className="category" href="/new">
               new arrivals
             </Nav.Link>
-            <Nav.Link className="category" href="#men">
+            <Nav.Link className="category" href="/men">
               men
             </Nav.Link>
-            <Nav.Link className="category" href="#women">
+            <Nav.Link className="category" href="/women">
               women
             </Nav.Link>
-            <Nav.Link className="category" href="#accessories">
+            <Nav.Link className="category" href="/accessories">
               accessories
             </Nav.Link>
-            <Nav.Link className="category" href="#shoes">
+            <Nav.Link className="category" href="/shoes">
               shoes
             </Nav.Link>
-            <Nav.Link className="category" href="#sale">
+            <Nav.Link className="category" href="/sale">
               sale
             </Nav.Link>
           </Nav>

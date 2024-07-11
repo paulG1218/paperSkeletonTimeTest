@@ -1,6 +1,7 @@
 import express from "express";
 import session from "express-session";
 import ViteExpress from "vite-express";
+import { Op } from "sequelize";
 import { Product, User } from "../db/model.js";
 import morgan from "morgan";
 
@@ -44,6 +45,16 @@ app.get("/api/products/:productId", async (req, res) => {
   const { productId } = req.params;
   const product = await Product.findByPk(productId);
   res.json(product);
+});
+
+app.get("/api/:category", async (req, res) => {
+  const { category } = req.params;
+  const products = await Product.findAll({
+    where: {
+      tags:  {[Op.contains]: [category]}
+    }
+  });
+  res.json(products);
 });
 
 ViteExpress.listen(app, port, () =>

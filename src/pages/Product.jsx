@@ -6,7 +6,7 @@ import "../css/Product.css";
 const Product = () => {
   const { product } = useLoaderData();
 
-  const { title, description, image, price, productId, colors, sizes } =
+  const { title, description, image, price, productId, colors, sizes, tags } =
     product;
 
   const [colorRadioState, setColorRadioState] = useState(0);

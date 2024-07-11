@@ -68,6 +68,9 @@ export class User extends Model {
       }, 
       sizes: {
         type: DataTypes.ARRAY(DataTypes.STRING)
+      },
+      tags: {
+        type: DataTypes.ARRAY(DataTypes.STRING)
       }
     },
     {
