@@ -20,7 +20,7 @@ const Footer = () => {
         <Container fluid>
           <Navbar.Brand className="footer-logo">
             <h1>
-              melon <img src="../../public/melon-icon.svg" alt="logo" />
+              melon <img src="/melon-icon.svg" alt="logo" />
             </h1>
           </Navbar.Brand>
         </Container>

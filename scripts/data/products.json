@@ -5,7 +5,8 @@
         "image": "https://minnythrift.com/cdn/shop/files/2AAD827F-4C20-4D17-B18A-4044D619656B.jpg?v=1698363457",
         "price": 49.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["new", "women"]
     },
     {
         "title": "Black Leather Boots",
@@ -13,7 +14,8 @@
         "image": "https://cdn.vagabond.com/thumbnails/924/auto/resize/productimages/pos1/list/5417-001-20.jpg",
         "price": 89.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["7", "8", "9", "10", "11", "12"]
+        "sizes": ["7", "8", "9", "10", "11", "12"],
+        "tags": ["new", "women", "shoes"]
     },
     {
         "title": "White Linen Shirt",
@@ -21,7 +23,8 @@
         "image": "https://lp2.hm.com/hmgoepprod?set=quality%5B79%5D%2Csource%5B%2Fa1%2F8f%2Fa18f27cb74d100a07fd7cd9e75391fd330ee3d6f.jpg%5D%2Corigin%5Bdam%5D%2Ccategory%5B%5D%2Ctype%5BDESCRIPTIVESTILLLIFE%5D%2Cres%5Bm%5D%2Chmver%5B2%5D&call=url[file:/product/main]",
         "price": 35.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["men"]
     },
     {
         "title": "Pleated Midi Skirt",
@@ -29,7 +32,8 @@
         "image": "https://thefrankieshop.com/cdn/shop/files/GISELE-PLEATED-MIDI-SKIRT-GREY-6220-PACKSHOT.jpg?v=1698660371&width=2880",
         "price": 42.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["women"]
     },
     {
         "title": "Graphic Tee",
@@ -37,7 +41,8 @@
         "image": "https://target.scene7.com/is/image/Target/GUEST_54e478a2-367f-4d33-b989-80c2d65fc9e4?wid=488&hei=488&fmt=pjpeg",
         "price": 24.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["women", "men"]
     },
     {
         "title": "Silk Scarf",
@@ -45,7 +50,8 @@
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQfSHevonAn9yceofoWngNzCCEXvONS3Ni9ct-JXGvNg&s",
         "price": 29.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["one size"]
+        "sizes": ["one size"],
+        "tags": ["new", "women", "accessories"]
     },
     {
         "title": "Wool Fedora Hat",
@@ -53,7 +59,8 @@
         "image": "https://assets.orvis.com/is/image/orvisprd/3G5R26MF23_W?wid=1024&src=is($object$:1-1)",
         "price": 34.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["one size"]
+        "sizes": ["one size"],
+        "tags": ["men", "accessories"]
     },
     {
         "title": "Floral Print Dress",
@@ -61,7 +68,8 @@
         "image": "https://www.lilyboutique.com/media/catalog/product/cache/1/image/560x840/9df78eab33525d08d6e5fb8d27136e95/9/5/95_92_.jpg",
         "price": 58.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["new", "women"]
     },
     {
         "title": "Cashmere Sweater",
@@ -69,7 +77,8 @@
         "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDmkypxTzQH0QDF-cVyyV4mayd0V0Om1llkNliDq2i6A&s",
         "price": 79.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["women"]
     },
     {
         "title": "High Waisted Jeans",
@@ -77,6 +86,7 @@
         "image": "https://static.zara.net/assets/public/543b/67f1/ba0c455ca8b3/40d742b51518/06164053405-e1/06164053405-e1.jpg?ts=1704190612309&w=750",
         "price": 54.99,
         "colors": ["red", "white", "blue"],
-        "sizes": ["s", "m", "l", "xl"]
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["women", "sale"]
     }
 ]

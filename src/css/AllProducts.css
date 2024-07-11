@@ -1,0 +1,47 @@
+.products-row.row {
+    max-width: 966px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 48px;
+}
+
+.products-container {
+    margin-top: 48px;
+}
+
+.products-header {
+    text-align: left;
+    max-width: 966px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h3.products-header {
+    font-weight: 700;
+    font-size: 24px;
+}
+
+p.products-header {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sidebar-title {
+    font-weight: 700;
+    text-align: left;
+    margin-left: 32px;
+}
+
+.sidebar-category.nav-link {
+    font-weight: 700;
+    font-size: 18px;
+    color: #7C7C7C;
+    text-align: left;
+    margin-left: 32px;
+    margin-top: 14px;
+    &:hover {
+        color: black;
+        cursor: pointer;
+    }
+}
+

@@ -10,6 +10,7 @@ import Product from "./pages/Product.jsx";
 import "./css/App.css";
 import axios from "axios";
 import Login from "./pages/Login.jsx";
+import AllProudcts from "./pages/AllProudcts.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,13 @@ const router = createBrowserRouter(
           return { product: res.data };
         }}
       />
+      <Route path="/:category"
+        element={<AllProudcts/>}
+        loader={async ({params}) => {
+          const res = await axios.get(`/api/${params.category}`)
+          return { products: res.data }
+        }}
+        />
     </Route>
   )
 );
