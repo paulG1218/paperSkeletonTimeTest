@@ -3,10 +3,13 @@ import { Container, Row, Col, NavLink, Dropdown } from 'react-bootstrap'
 import { useLoaderData } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
 import '../css/AllProducts.css'
+import { useSelector } from 'react-redux'
 
 const AllProudcts = () => {
 
     const {products} = useLoaderData()
+
+    const searchTerm = useSelector((state) => state.searchTerm)
 
     const [sortState, setSortState] = useState("sort by")
     const [productCardsState, setProductCardsState] = useState()
@@ -35,6 +38,7 @@ const AllProudcts = () => {
       }
       setProductCardsState(products.map((product) => {
         console.log("created card")
+        if (searchTerm === '' || product.title.toLowerCase().includes(searchTerm)) {
           return (
             <ProductCard
               key={product.productId}
@@ -45,11 +49,10 @@ const AllProudcts = () => {
               price={product.price}
             />
           );
+        }
         }))
-    }, [sortState])
-
-
-
+        console.log(productCardsState)
+    }, [sortState, searchTerm])
 
   return (
     <Container fluid className='products-container'>
@@ -77,7 +80,9 @@ const AllProudcts = () => {
         </Col>
         <Col>
           <Row xs={3} className="products-row">
-            {productCardsState}
+            {productCardsState && productCardsState.every((a) => a === undefined) ? 
+            <Col xs={{span: 12}} className='no-results'>your search returned no results. try searching for something else</Col> :
+            productCardsState}
           </Row>
         </Col>
         <Col xs={{span: 1}}>

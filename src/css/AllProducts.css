@@ -87,4 +87,10 @@ p.products-header {
     color: black;
 }
 
+.no-results {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+}
+
 

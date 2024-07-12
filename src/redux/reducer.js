@@ -2,6 +2,7 @@ const initialState = {
     userId: null,
     isAdmin: false,
     email: null,
+    searchTerm: ''
   };
 
   const reducer = (state = initialState, action) => {
@@ -13,6 +14,12 @@ const initialState = {
                 isAdmin: action.payload.isAdmin,
                 email: action.payload.email,
               };
+        }
+        case "search": {
+            return {
+                ...state,
+                searchTerm: action.payload
+            }
         }
         default: {
             return state;
