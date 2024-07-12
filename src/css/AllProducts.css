@@ -45,3 +45,46 @@ p.products-header {
     }
 }
 
+.sort-by-dropdown.dropdown {
+    width: 966px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: right;
+}
+
+.sort-by-dropdown.btn.btn-primary {
+    border-radius: 0px;
+    border: 2px solid black;
+    background-color: #FAF9F8;
+    color: black;
+    font-weight: 400;
+    &:hover {
+        color: white;
+        background-color: black;
+        border: 2px solid black;
+    }
+    &:active {
+        background-color: black;
+    }
+}
+
+.sort-by-dropdown.btn.show.btn-primary {
+    color: white;
+    background-color: black;
+    border: 2px solid black;
+    &:active {
+        background-color: black;
+    }
+}
+
+.sort-by-dropdown.dropdown-menu.show {
+    border-radius: 0px;
+}
+
+.sort-by-option.dropdown-item:active {
+    background-color: #FAF9F8;
+    color: black;
+}
+
+
