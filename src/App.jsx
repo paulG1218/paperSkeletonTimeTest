@@ -9,7 +9,6 @@ import Home from "./pages/Home.jsx";
 import Product from "./pages/Product.jsx";
 import "./css/App.css";
 import axios from "axios";
-import Login from "./pages/Login.jsx";
 import AllProudcts from "./pages/AllProudcts.jsx";
 
 const router = createBrowserRouter(

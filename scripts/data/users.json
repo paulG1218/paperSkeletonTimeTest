@@ -1,11 +1,11 @@
 [
     {
-      "username": "user1",
+      "email": "user1@test.com",
       "password": "123",
       "isAdmin": false
     },
     {
-      "username": "admin",
+      "email": "admin@test.com",
       "password": "admin",
       "isAdmin": false
     }

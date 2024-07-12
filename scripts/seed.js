@@ -10,9 +10,9 @@ console.log("Seeding database...");
 console.log("Creating users...");
 const usersInDB = await Promise.all(
   userData.map((user) => {
-    const { username, password, isAdmin } = user;
+    const { email, password, isAdmin } = user;
     const newUser = User.create({
-      username: username,
+      email: email,
       password: password,
       isAdmin: isAdmin,
     });
