@@ -20,16 +20,17 @@ const NavigationBar = () => {
 
   const userId = useSelector((state) => state.userId);
   const email = useSelector((state) => state.email)
+  const searchTerm = useSelector((state) => state.searchTerm)
 
   const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleOpen = () => setShow(true);
-
   const [passwordState, setPasswordState] = useState('')
   const [confirmPasswordState, setConfirmPasswordState] = useState('')
   const [emailState, setEmailState] = useState('')
   const [isRegistering, setIsRegistering] = useState(false)
+  const [searchState, setSearchState] = useState(searchTerm)
+
+  const handleClose = () => setShow(false);
+  const handleOpen = () => setShow(true);
 
   const sessionCheck = async () => {
     await axios.get("/api/sessionCheck").then((res) => {
@@ -87,6 +88,15 @@ const NavigationBar = () => {
     }
   }
 
+  const handleSearch = (e) => {
+    e.preventDefault()
+
+    dispatch({
+      type: "search",
+      payload: searchState
+    });
+  }
+
   return (
     <>
       <Modal show={show} className="login-modal">
@@ -140,13 +150,15 @@ const NavigationBar = () => {
           </Col>
           <Col className="search-column">
             <InputGroup className="search-group">
-              <Nav.Link className="search-button">
+              <Nav.Link className="search-button" onClick={(e) => handleSearch(e)}>
                 <img src="/search.svg" alt="search" className="search-svg"/>
               </Nav.Link>
               <Form.Control
                 type="search"
                 placeholder="Find your next fit"
                 className="search-bar"
+                onChange={(e) => setSearchState(e.target.value)}
+                onKeyUp={(e) => e.key === 'Enter' && handleSearch(e)}
               />
             </InputGroup>
           </Col>
