@@ -17,7 +17,7 @@ export class User extends Model {
         primaryKey: true,
         autoIncrement: true,
       },
-      username: {
+      email: {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
@@ -27,6 +27,7 @@ export class User extends Model {
       },
       isAdmin: {
         type: DataTypes.BOOLEAN,
+        defaultValue: false,
         allowNull: false
       }
     },

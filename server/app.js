@@ -4,6 +4,7 @@ import ViteExpress from "vite-express";
 import { Op } from "sequelize";
 import { Product, User } from "../db/model.js";
 import morgan from "morgan";
+import handlers from "./handlers.js";
 
 const app = express();
 const port = "8002";
@@ -16,25 +17,11 @@ app.use(
   session({ secret: "ssshhhhh", saveUninitialized: true, resave: false })
 );
 
-app.post("/api/login", async (req, res) => {
-  const { username, password } = req.body;
-  console.log(username, password);
+app.post("/api/login", handlers.login);
 
-  const user = await User.findOne({
-    where: {
-      username: username,
-      password: password,
-    },
-  });
+app.post("/api/register", handlers.register)
 
-  console.log(user);
-
-  if (user) {
-    res.json({ user: user });
-  } else {
-    res.json({ user: null });
-  }
-});
+app.get("/api/sessionCheck", handlers.sessionCheck)
 
 app.get("/api/products", async (req, res) => {
   const products = await Product.findAll();
