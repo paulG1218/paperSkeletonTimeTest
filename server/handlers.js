@@ -18,12 +18,16 @@ const handlers = {
             req.session.user = user;
             res.json({
                 message: "success",
-                userId: user.userId,
+                user: {
+                    userId: user.userId,
+                    email: user.email,
+                    isAdmin: user.isAdmin
+                },
               });
         } else {
             res.json({
                 message: "Login failed",
-                userId: null,
+                user: null,
               });
         }
       },
@@ -40,7 +44,7 @@ const handlers = {
         if (user) {
             res.json({
                 message: "email in use",
-                userId: null
+                user: null
             })
             return
         } else {
@@ -54,7 +58,11 @@ const handlers = {
 
             res.json({
                 message: "success",
-                userId: newUser.userId
+                user: {
+                    userId: newUser.userId,
+                    email: newUser.email,
+                    isAdmin: newUser.isAdmin
+                }
             })
             return
         }
@@ -64,12 +72,47 @@ const handlers = {
         if (req.session.user) {
           console.log(req.session.user.userId);
           res.json({
-            userId: req.session.user.userId,
-            isAdmin: req.session.user.isAdmin,
-            email: req.session.user.email,
+            message: "",
+            user: {userId: req.session.user.userId,
+                email: req.session.user.email,
+                isAdmin: req.session.user.isAdmin
+            }
+            
           });
         } else {
           res.json("no user logged in");
+        }
+      },
+
+      AddProduct: async (req, res) => {
+        const {title, description, image, price, colors, sizes, tags} = req.body
+
+        const product = await Product.findOne({
+            where: {
+                title: title
+            }
+        })
+
+        console.log(product)
+
+        if (product) {
+            res.json({
+                mesasage: "title taken"
+            })
+        } else {
+            const newProduct = await Product.create({
+                title: title,
+                description: description,
+                image: image,
+                price: price,
+                colors: colors,
+                sizes: sizes,
+                tags: tags
+            })
+            res.json({
+                message: "product created",
+                product: newProduct
+            })
         }
       }
 }

@@ -10,6 +10,7 @@ import Product from "./pages/Product.jsx";
 import "./css/App.css";
 import axios from "axios";
 import AllProudcts from "./pages/AllProudcts.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -36,6 +37,9 @@ const router = createBrowserRouter(
           const res = await axios.get(`/api/${params.category}`)
           return { products: res.data }
         }}
+        />
+        <Route path="/addProduct"
+          element={<AddProduct/>}
         />
     </Route>
   )
