@@ -23,6 +23,8 @@ app.post("/api/register", handlers.register)
 
 app.get("/api/sessionCheck", handlers.sessionCheck)
 
+app.post("/api/addProduct", handlers.AddProduct)
+
 app.get("/api/products", async (req, res) => {
   const products = await Product.findAll();
   res.json(products);

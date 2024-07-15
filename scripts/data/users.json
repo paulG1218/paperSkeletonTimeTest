@@ -7,6 +7,6 @@
     {
       "email": "admin@test.com",
       "password": "admin",
-      "isAdmin": false
+      "isAdmin": true
     }
   ]

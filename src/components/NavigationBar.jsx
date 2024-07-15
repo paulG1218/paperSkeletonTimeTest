@@ -21,6 +21,7 @@ const NavigationBar = () => {
   const userId = useSelector((state) => state.userId);
   const email = useSelector((state) => state.email)
   const searchTerm = useSelector((state) => state.searchTerm)
+  const isAdmin = useSelector((state) => state.isAdmin)
 
   const [show, setShow] = useState(false);
   const [passwordState, setPasswordState] = useState('')
@@ -34,12 +35,12 @@ const NavigationBar = () => {
 
   const sessionCheck = async () => {
     await axios.get("/api/sessionCheck").then((res) => {
-      if (res.data.userId) {
+      if (res.data.user) {
         dispatch({
           type: "authenticated",
-          payload: res.data,
+          payload: res.data.user,
         });
-        console.log(res.data.userId);
+        console.log(res.data.user.isAdmin);
       } else {
         console.log(res.data);
       }
@@ -58,7 +59,7 @@ const NavigationBar = () => {
           case "success": {
             dispatch({
               type: "authenticated",
-              payload: res.data.userId,
+              payload: res.data.user,
             });
             setPasswordState('')
             setConfirmPasswordState('')
@@ -76,7 +77,7 @@ const NavigationBar = () => {
         case "success": {
           dispatch({
             type: "authenticated",
-            payload: res.data.userId,
+            payload: res.data.user,
           });
           setPasswordState('')
           setConfirmPasswordState('')
@@ -163,6 +164,11 @@ const NavigationBar = () => {
             </InputGroup>
           </Col>
           <Col className="links-column">
+              {isAdmin && 
+                <Nav.Link href="/addProduct">
+                  <p>Add product</p>
+                </Nav.Link>
+              }
             <Nav.Link onClick={handleOpen}>
               <p className="login-link">
                 <img src="/account.svg" alt="account" className="account-svg" /> {userId? email : 'login / register'}
