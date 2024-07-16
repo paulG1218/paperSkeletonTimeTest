@@ -2,7 +2,8 @@ const initialState = {
     userId: null,
     isAdmin: false,
     email: null,
-    searchTerm: ''
+    searchTerm: '',
+    cart: []
   };
 
   const reducer = (state = initialState, action) => {
@@ -19,6 +20,19 @@ const initialState = {
             return {
                 ...state,
                 searchTerm: action.payload
+            }
+        }
+        case "addCart": {
+            console.log(`payload: ${action.payload}`)
+            return {
+                ...state,
+                cart: [...state.cart, action.payload]
+            }
+        }
+        case "cartCheck": {
+            return {
+                ...state,
+                cart: action.payload
             }
         }
         default: {
