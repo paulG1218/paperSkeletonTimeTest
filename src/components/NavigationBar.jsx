@@ -22,6 +22,16 @@ const NavigationBar = () => {
   const email = useSelector((state) => state.email)
   const searchTerm = useSelector((state) => state.searchTerm)
   const isAdmin = useSelector((state) => state.isAdmin)
+  const cartCount = useSelector((state) => {
+    const cart = state.cart
+    let count = 0
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i]) {
+        count = count + Number(cart[i].quantity)
+      }
+    }
+    return count
+  })
 
   const [show, setShow] = useState(false);
   const [passwordState, setPasswordState] = useState('')
@@ -47,7 +57,16 @@ const NavigationBar = () => {
     });
   };
 
+  const cartCheck = async () => {
+    const res = await axios.get("/api/cart")
+    dispatch({
+      type: "cartCheck",
+      payload: res.data
+    })
+  }
+
   useEffect(() => sessionCheck, [userId])
+  useEffect(() => cartCheck, [cartCount])
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -179,9 +198,9 @@ const NavigationBar = () => {
                 <img src="/favorite.svg" alt="heart" className="favorites-svg" /> favorites
               </p>
             </Nav.Link>
-            <Nav.Link href="#cart">
+            <Nav.Link href="/cart">
               <p className="cart-link">
-                <img src="/cart.svg" alt="cart" className="cart-svg" /> 0
+                <img src="/cart.svg" alt="cart" className="cart-svg" /> {cartCount}
               </p>
             </Nav.Link>
           </Col>

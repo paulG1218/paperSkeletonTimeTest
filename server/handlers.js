@@ -114,7 +114,38 @@ const handlers = {
                 product: newProduct
             })
         }
-      }
+      },
+
+      addCart: async (req, res) => {
+        if (req.session.cart) {
+            req.session.cart.push(req.body)
+            res.json(req.session.cart)
+        }
+        else {
+            req.session.cart = [req.body]
+            res.json(req.session.cart)
+        }
+      },
+
+      getCart: async (req, res) => {
+        if (!req.session.cart) {
+            req.session.cart = []
+        }
+        res.json(req.session.cart)
+    },
+
+    editCart: async (req, res) => {
+        const {quantity, cartPos} = req.body
+        const product = req.session.cart[cartPos]
+        if (product && quantity > 0) {
+            product.quantity = quantity
+        } else {
+            req.session.cart = req.session.cart.filter((item, i) => {
+                return i !== cartPos
+            })
+        }
+        res.json(req.session.cart)
+    }
 }
 
 export default handlers

@@ -49,7 +49,7 @@
 }
 
 .size-radio {
-    width: 30px;
+    min-width: 30px;
     height: 30px;
     border: 1px solid black;
     font-weight: 600;

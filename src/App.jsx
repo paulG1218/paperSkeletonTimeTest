@@ -11,6 +11,7 @@ import "./css/App.css";
 import axios from "axios";
 import AllProudcts from "./pages/AllProudcts.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
+import Cart from "./pages/Cart.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,6 +41,13 @@ const router = createBrowserRouter(
         />
         <Route path="/addProduct"
           element={<AddProduct/>}
+        />
+        <Route path="/cart"
+          element={<Cart/>}
+          loader={async () => {
+            const res = await axios.get("/api/cart")
+            return {cart: res.data}
+          }}
         />
     </Route>
   )

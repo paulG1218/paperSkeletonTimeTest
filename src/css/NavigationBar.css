@@ -97,19 +97,6 @@ p.cart-link {
     padding-left: 1rem;
 }
 
-svg.account-svg {
-    font-size: 24px;
-    margin-right: 3px;
-}
-
-svg.favorites-svg {
-    font-size: 24px;
-    fill: black;
-}
-
-svg.cart-svg {
-    font-size: 24px;
-}
 
 img.search-svg {
     width: 16.38px;
