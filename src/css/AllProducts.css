@@ -93,4 +93,13 @@ p.products-header {
     font-size: 18px;
 }
 
+.pagination-btn {
+    border: none;
+    background-color: #FAF9F8;
+    color: black;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 

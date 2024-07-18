@@ -2,7 +2,6 @@ const initialState = {
     userId: null,
     isAdmin: false,
     email: null,
-    searchTerm: '',
     cart: []
   };
 
@@ -15,12 +14,6 @@ const initialState = {
                 isAdmin: action.payload.isAdmin,
                 email: action.payload.email,
               };
-        }
-        case "search": {
-            return {
-                ...state,
-                searchTerm: action.payload
-            }
         }
         case "addCart": {
             console.log(`payload: ${action.payload}`)

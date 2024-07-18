@@ -7,22 +7,24 @@ import { useDispatch } from "react-redux";
 const CartCard = ({ item, cartPos }) => {
   const { productId, title, price, image, quantity, size, color } = item;
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
-  const [qtyState, setQtyState] = useState(quantity)
+  const [qtyState, setQtyState] = useState(quantity);
 
   const handleChangeQuantity = async (e) => {
-    e.target.blur()
-    console.log(e)
-    console.log("requesting...")
-    const res = await axios.put("/api/editCart", {quantity: Number(qtyState), cartPos: cartPos})
-    console.log(res.data)
+    e.target.blur();
+    console.log(e);
+    console.log("requesting...");
+    const res = await axios.put("/api/editCart", {
+      quantity: Number(qtyState),
+      cartPos: cartPos,
+    });
+    console.log(res.data);
     dispatch({
-        type: "cartCheck",
-        payload: res.data
-    })
-  }
-
+      type: "cartCheck",
+      payload: res.data,
+    });
+  };
 
   return (
     <Card className="cart-card">
@@ -42,7 +44,17 @@ const CartCard = ({ item, cartPos }) => {
             <Col className="cart-card-col-2">
               <img src="/delete.svg" alt="remove" className="remove-svg" />
               <Card.Text className="cart-card-qty-text">
-                qty<input className="cart-card-qty-input" type="number" value={qtyState} onChange={(e) => setQtyState(e.target.value)} onBlur={(e) => handleChangeQuantity(e)} onKeyDown={(e) => e.key === "Enter" && handleChangeQuantity(e)}></input>
+                qty
+                <input
+                  className="cart-card-qty-input"
+                  type="number"
+                  value={qtyState}
+                  onChange={(e) => setQtyState(e.target.value)}
+                  onBlur={(e) => handleChangeQuantity(e)}
+                  onKeyDown={(e) =>
+                    e.key === "Enter" && handleChangeQuantity(e)
+                  }
+                ></input>
               </Card.Text>
             </Col>
           </Row>

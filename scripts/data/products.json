@@ -88,5 +88,14 @@
         "colors": ["red", "white", "blue"],
         "sizes": ["s", "m", "l", "xl"],
         "tags": ["women", "sale"]
+    },
+    {
+        "title": "example",
+        "description": "example description",
+        "image": "https://s3-alpha-sig.figma.com/img/af56/ddde/9c9da3a5fb8ffb865ccb604fbf2d7ae8?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e~Vpb0tmaEyPpxoOqFVvJax3d7bIoxBawDLTrN1HOOUx4J3xlPmS4p2~81IRoEDK-l7izV0NWnFi6zHtWDCGVSoRXWPmSqJNvllxCGNxtZGkWXNsjGj7u7-98C23voiUingZB3FR2Y0jvwePyGlcJYerbqJ9~Z7ksMK0pYI8J-vzhAhbDkYhd51AZJCSCYd~5X-euaJgMgVZF2I0nYAoI3Q7I8On-Qqum4TdALMU7d9EdUYdYGmVf~~DPNJyMA0ZEm1LTeElRmUPqAk5aV0uzD6psd-J45Vyla-9WBLTP1eSrP~0l7-Qsuz5UYkBIEERJ78IkD2rokN7YMKBLbp4cA__",
+        "price": 54.99,
+        "colors": ["blue"],
+        "sizes": ["s", "m", "l", "xl"],
+        "tags": ["men", "sale"]
     }
 ]

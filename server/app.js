@@ -1,7 +1,6 @@
 import express from "express";
 import session from "express-session";
 import ViteExpress from "vite-express";
-import { Op } from "sequelize";
 import { Product, User } from "../db/model.js";
 import morgan from "morgan";
 import handlers from "./handlers.js";
@@ -19,17 +18,17 @@ app.use(
 
 app.post("/api/login", handlers.login);
 
-app.post("/api/register", handlers.register)
+app.post("/api/register", handlers.register);
 
-app.get("/api/sessionCheck", handlers.sessionCheck)
+app.get("/api/sessionCheck", handlers.sessionCheck);
 
-app.post("/api/addProduct", handlers.AddProduct)
+app.post("/api/addProduct", handlers.AddProduct);
 
-app.post("/api/cart", handlers.addCart)
+app.post("/api/cart", handlers.addCart);
 
-app.get("/api/cart", handlers.getCart)
+app.get("/api/cart", handlers.getCart);
 
-app.put("/api/editCart", handlers.editCart)
+app.put("/api/editCart", handlers.editCart);
 
 app.get("/api/products", async (req, res) => {
   const products = await Product.findAll();
@@ -42,15 +41,7 @@ app.get("/api/products/:productId", async (req, res) => {
   res.json(product);
 });
 
-app.get("/api/:category", async (req, res) => {
-  const { category } = req.params;
-  const products = await Product.findAll({
-    where: {
-      tags:  {[Op.contains]: [category]}
-    }
-  });
-  res.json(products);
-});
+app.get("/api/:category", handlers.getProducts);
 
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)

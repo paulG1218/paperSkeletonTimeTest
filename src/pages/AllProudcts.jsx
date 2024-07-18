@@ -1,58 +1,66 @@
 import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, NavLink, Dropdown } from 'react-bootstrap'
-import { useLoaderData } from 'react-router-dom'
+import { useLoaderData, useSearchParams } from 'react-router-dom'
 import ProductCard from '../components/ProductCard.jsx'
 import '../css/AllProducts.css'
 import { useSelector } from 'react-redux'
+import axios from 'axios'
 
 const AllProudcts = () => {
 
-    const {products} = useLoaderData()
+  const {category, initialProducts, productCount} = useLoaderData()
 
-    const searchTerm = useSelector((state) => state.searchTerm)
+    const [searchParams, setSearchParams] = useSearchParams()
+
+    const searchTerm = searchParams.get('q')
 
     const [sortState, setSortState] = useState("sort by")
+    const [products, setProducts] = useState(initialProducts)
     const [productCardsState, setProductCardsState] = useState()
+    const [page, setPage] = useState(0)
+    const [itemsPerPage, setItemsPerPage] = useState(10)
+    let maxPage = 0
+
+    const getProducts = async () => {
+      console.log(sortState, page, itemsPerPage)
+      const res = await axios.get(`/api/${category}?page=${page}&sort=${sortState}&itemsPerPage=${itemsPerPage}`)
+      setProducts(res.data.products)
+    }
 
     useEffect(()  => {
-      console.log("sorting...")
-      switch (sortState) {
-        case "price: low-high": {
-          products.sort((a, b) => a.price - b.price)
-          console.log("sorted low-high")
-          break;
-        }
-        case "price: high-low": {
-          products.sort((a, b) => b.price - a.price)
-          console.log("sorted high-low")
-          break;
-        }
-        case "featured": {
-          products.sort((a, b) => a.productId - b.productId)
-          break;
-        }
-        default: {
-          products.sort((a, b) => a.productId - b.productId)
-          break;
-        }
-      }
+      getProducts()
+    }, [sortState, searchTerm, page])
+
+    useEffect(() => {
       setProductCardsState(products.map((product) => {
-        console.log("created card")
-        if (searchTerm === '' || product.title.toLowerCase().includes(searchTerm)) {
-          return (
-            <ProductCard
-              key={product.productId}
-              productId={product.productId}
-              title={product.title}
-              description={product.description}
-              image={product.image}
-              price={product.price}
-            />
-          );
+        if (!searchTerm || product.title.toLowerCase().includes(searchTerm)) {
+            return (
+              <ProductCard
+                key={product.productId}
+                productId={product.productId}
+                title={product.title}
+                description={product.description}
+                image={product.image}
+                price={product.price}
+              />
+            );
         }
         }))
-        console.log(productCardsState)
-    }, [sortState, searchTerm])
+    }, [products])
+
+    useEffect(() =>{
+      window.scrollTo({top: 0, behavior: 'smooth'})
+    }, [page])
+
+    const paginationButtons = () => {
+      const returnArray = []
+      for (let i = 0; i < productCount/itemsPerPage; i++) {
+        returnArray.push(<button key={i} className='pagination-btn' onClick={() => setPage(i)} style={i === page ? {"fontWeight": "700"} : {"fontWeight": "300"}}>{i + 1}</button>)
+      }
+      maxPage = returnArray.length - 1
+      console.log(maxPage)
+      return returnArray
+    }
 
   return (
     <Container fluid className='products-container'>
@@ -88,6 +96,11 @@ const AllProudcts = () => {
         <Col xs={{span: 1}}>
         </Col>
       </Row>
+      <button className='pagination-btn' onClick={() => setPage(0)}>{"<<"}</button>
+      <button className='pagination-btn' onClick={() => setPage((prevState) => prevState > 0 ? prevState - 1 : prevState)}>{"<"}</button>
+      {paginationButtons()}
+      <button className='pagination-btn' onClick={() => setPage((prevState) => prevState < maxPage ? prevState + 1: prevState)}>{">"}</button>
+      <button className='pagination-btn' onClick={() => setPage(maxPage)}>{">>"}</button>
     </Container>
   )
 }

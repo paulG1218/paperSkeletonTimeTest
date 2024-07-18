@@ -3,6 +3,7 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
   RouterProvider,
+  useSearchParams
 } from "react-router-dom";
 import Root from "./Root.jsx";
 import Home from "./pages/Home.jsx";
@@ -35,8 +36,8 @@ const router = createBrowserRouter(
       <Route path="/:category"
         element={<AllProudcts/>}
         loader={async ({params}) => {
-          const res = await axios.get(`/api/${params.category}`)
-          return { products: res.data }
+          const res = await axios.get(`/api/${params.category}`, {sort: "", page: 1, itemsPerPage: 2})
+          return { category: params.category, initialProducts: res.data.products, productCount: res.data.count.count }
         }}
         />
         <Route path="/addProduct"

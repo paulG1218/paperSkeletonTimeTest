@@ -31,7 +31,7 @@ const productsInDB = await Promise.all(
       price: price,
       colors: colors,
       sizes: sizes,
-      tags: tags
+      tags: tags,
     });
     return newProduct;
   })

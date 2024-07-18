@@ -13,32 +13,33 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineClose } from "react-icons/md";
 import "../css/NavigationBar.css";
+import { useSearchParams } from "react-router-dom";
 
 const NavigationBar = () => {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const userId = useSelector((state) => state.userId);
-  const email = useSelector((state) => state.email)
-  const searchTerm = useSelector((state) => state.searchTerm)
-  const isAdmin = useSelector((state) => state.isAdmin)
+  const email = useSelector((state) => state.email);
+  const isAdmin = useSelector((state) => state.isAdmin);
   const cartCount = useSelector((state) => {
-    const cart = state.cart
-    let count = 0
+    const cart = state.cart;
+    let count = 0;
     for (let i = 0; i < cart.length; i++) {
       if (cart[i]) {
-        count = count + Number(cart[i].quantity)
+        count = count + Number(cart[i].quantity);
       }
     }
-    return count
-  })
+    return count;
+  });
 
   const [show, setShow] = useState(false);
-  const [passwordState, setPasswordState] = useState('')
-  const [confirmPasswordState, setConfirmPasswordState] = useState('')
-  const [emailState, setEmailState] = useState('')
-  const [isRegistering, setIsRegistering] = useState(false)
-  const [searchState, setSearchState] = useState(searchTerm)
+  const [passwordState, setPasswordState] = useState("");
+  const [confirmPasswordState, setConfirmPasswordState] = useState("");
+  const [emailState, setEmailState] = useState("");
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [searchState, setSearchState] = useState(searchParams.get("q") || "");
 
   const handleClose = () => setShow(false);
   const handleOpen = () => setShow(true);
@@ -58,64 +59,66 @@ const NavigationBar = () => {
   };
 
   const cartCheck = async () => {
-    const res = await axios.get("/api/cart")
+    const res = await axios.get("/api/cart");
     dispatch({
       type: "cartCheck",
-      payload: res.data
-    })
-  }
+      payload: res.data,
+    });
+  };
 
-  useEffect(() => sessionCheck, [userId])
-  useEffect(() => cartCheck, [cartCount])
+  useEffect(() => sessionCheck, [userId]);
+  useEffect(() => cartCheck, [cartCount]);
 
   const handleLogin = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (isRegistering) {
       if (passwordState === confirmPasswordState) {
-        const res = await axios.post("/api/register", {password: passwordState, email: emailState})
+        const res = await axios.post("/api/register", {
+          password: passwordState,
+          email: emailState,
+        });
         switch (res.data.message) {
           case "success": {
             dispatch({
               type: "authenticated",
               payload: res.data.user,
             });
-            setPasswordState('')
-            setConfirmPasswordState('')
-            setEmailState('')
-            handleClose()
+            setPasswordState("");
+            setConfirmPasswordState("");
+            setEmailState("");
+            handleClose();
             break;
           }
         }
       } else {
-        console.log("passswords dont match")
+        console.log("passswords dont match");
       }
     } else {
-      const res = await axios.post("/api/login", {password: passwordState, email: emailState})
+      const res = await axios.post("/api/login", {
+        password: passwordState,
+        email: emailState,
+      });
       switch (res.data.message) {
         case "success": {
           dispatch({
             type: "authenticated",
             payload: res.data.user,
           });
-          setPasswordState('')
-          setConfirmPasswordState('')
-          setEmailState('')
-          handleClose()
+          setPasswordState("");
+          setConfirmPasswordState("");
+          setEmailState("");
+          handleClose();
           break;
         }
+      }
     }
-    }
-  }
+  };
 
   const handleSearch = (e) => {
-    e.preventDefault()
-
-    dispatch({
-      type: "search",
-      payload: searchState
-    });
-  }
+    e.target.blur();
+    setSearchParams({ q: searchState });
+  };
 
   return (
     <>
@@ -126,36 +129,66 @@ const NavigationBar = () => {
           </Button>
         </Modal.Header>
         <Modal.Body>
-          <h3 className="modal-title">{isRegistering? "register" : "login"}</h3>
+          <h3 className="modal-title">
+            {isRegistering ? "register" : "login"}
+          </h3>
           <p className="modal-subtitle">
             become a member — enjoy first dibs on new products and rewards
           </p>
           <Form className="login-form" onSubmit={(e) => handleLogin(e)}>
             <Form.Label>email</Form.Label>
-            <Form.Control type="email" required onChange={(e) => setEmailState(e.target.value)}/>
+            <Form.Control
+              type="email"
+              required
+              onChange={(e) => setEmailState(e.target.value)}
+            />
             <Form.Label>password</Form.Label>
-            <Form.Control type="password" required onChange={(e) => setPasswordState(e.target.value)}/>
-              {isRegistering && 
-                <>
-                  <Form.Label>confirm password</Form.Label>
-                  <Form.Control type="password" required onChange={(e) => setConfirmPasswordState(e.target.value)}/>
-                </>
-              }
-            
-            {!isRegistering && <div className="login-options">
-              <Form.Check
-                className="remember-check"
-                type="check"
-                label="remember me"
-              />
-              <a href="#forgot" className="forgot-password">
-                forgot password?
-              </a>
-            </div>}
-            <Button className="login-btn" type="submit">{isRegistering ? "register account" : "login"}</Button>
-            {isRegistering ?
-            <Button className="register-btn" onClick={() => setIsRegistering(false)}>login</Button>:
-            <Button className="register-btn" onClick={() => setIsRegistering(true)}>register</Button>}
+            <Form.Control
+              type="password"
+              required
+              onChange={(e) => setPasswordState(e.target.value)}
+            />
+            {isRegistering && (
+              <>
+                <Form.Label>confirm password</Form.Label>
+                <Form.Control
+                  type="password"
+                  required
+                  onChange={(e) => setConfirmPasswordState(e.target.value)}
+                />
+              </>
+            )}
+
+            {!isRegistering && (
+              <div className="login-options">
+                <Form.Check
+                  className="remember-check"
+                  type="check"
+                  label="remember me"
+                />
+                <a href="#forgot" className="forgot-password">
+                  forgot password?
+                </a>
+              </div>
+            )}
+            <Button className="login-btn" type="submit">
+              {isRegistering ? "register account" : "login"}
+            </Button>
+            {isRegistering ? (
+              <Button
+                className="register-btn"
+                onClick={() => setIsRegistering(false)}
+              >
+                login
+              </Button>
+            ) : (
+              <Button
+                className="register-btn"
+                onClick={() => setIsRegistering(true)}
+              >
+                register
+              </Button>
+            )}
           </Form>
         </Modal.Body>
       </Modal>
@@ -170,37 +203,52 @@ const NavigationBar = () => {
           </Col>
           <Col className="search-column">
             <InputGroup className="search-group">
-              <Nav.Link className="search-button" onClick={(e) => handleSearch(e)}>
-                <img src="/search.svg" alt="search" className="search-svg"/>
+              <Nav.Link
+                className="search-button"
+                onClick={(e) => handleSearch(e)}
+              >
+                <img src="/search.svg" alt="search" className="search-svg" />
               </Nav.Link>
               <Form.Control
                 type="search"
                 placeholder="Find your next fit"
                 className="search-bar"
-                onChange={(e) => setSearchState(e.target.value)}
-                onKeyUp={(e) => e.key === 'Enter' && handleSearch(e)}
+                value={searchState}
+                onReset={(e) => console.log(e)}
+                onChange={(e) => {
+                  setSearchState(e.target.value);
+                  console.log(e);
+                }}
+                onKeyUp={(e) => e.key === "Enter" && handleSearch(e)}
               />
             </InputGroup>
           </Col>
           <Col className="links-column">
-              {isAdmin && 
-                <Nav.Link href="/addProduct">
-                  <p>Add product</p>
-                </Nav.Link>
-              }
+            {isAdmin && (
+              <Nav.Link href="/addProduct">
+                <p>Add product</p>
+              </Nav.Link>
+            )}
             <Nav.Link onClick={handleOpen}>
               <p className="login-link">
-                <img src="/account.svg" alt="account" className="account-svg" /> {userId? email : 'login / register'}
+                <img src="/account.svg" alt="account" className="account-svg" />{" "}
+                {userId ? email : "login / register"}
               </p>
             </Nav.Link>
             <Nav.Link href="#favorites">
               <p className="favorites-link">
-                <img src="/favorite.svg" alt="heart" className="favorites-svg" /> favorites
+                <img
+                  src="/favorite.svg"
+                  alt="heart"
+                  className="favorites-svg"
+                />{" "}
+                favorites
               </p>
             </Nav.Link>
             <Nav.Link href="/cart">
               <p className="cart-link">
-                <img src="/cart.svg" alt="cart" className="cart-svg" /> {cartCount}
+                <img src="/cart.svg" alt="cart" className="cart-svg" />{" "}
+                {cartCount}
               </p>
             </Nav.Link>
           </Col>
