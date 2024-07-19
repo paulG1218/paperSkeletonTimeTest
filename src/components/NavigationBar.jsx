@@ -225,8 +225,11 @@ const NavigationBar = () => {
           </Col>
           <Col className="links-column">
             {isAdmin && (
-              <Nav.Link href="/addProduct">
-                <p>Add product</p>
+              <Nav.Link href="/adminDash">
+                <p className="dashboard-link">
+                  <img src="/control.svg" alt="" className="control-svg"/>
+                  Dashboard
+                </p>
               </Nav.Link>
             )}
             <Nav.Link onClick={handleOpen}>

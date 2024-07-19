@@ -1,0 +1,71 @@
+.admin-card.card {
+    border: none;
+    border-radius: 0px;
+    padding: 16px;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.admin-card-body.card-body {
+    background-color: white;
+}
+
+.admin-card-image.card-img {
+    width: 149px;
+    height: 149px;
+    object-fit: cover;
+}
+
+.admin-card-container {
+    height: 100%;
+}
+
+.admin-card-row {
+    height: 100%;
+}
+
+.admin-card-col-1 {
+    text-align: left;
+}
+
+.admin-card-price.card-subtitle {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+.admin-card-col-2 {
+    justify-content: right;
+    display: grid;
+}
+
+.admin-card-delete-btn.btn-primary {
+    background-color: white;
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+    align-self: flex-end;
+    height: 24px;
+    &:hover {
+        background-color: white;
+    }
+    &&:active {
+        background-color: white;
+        border: none;
+    }
+}
+
+.admin-card-edit-btn.btn-primary {
+    background-color: white;
+    padding: 0px;
+    border: none;
+    border-radius: 0px;
+    height: 24px;
+    &:hover {
+        background-color: white;
+    }
+    &&:active {
+        background-color: white;
+        border: none; 
+    }
+}

@@ -182,6 +182,14 @@ const handlers = {
     }
     res.json(req.session.cart);
   },
+
+  adminCheck: async (req, res) => {
+    if (req.session.user && req.session.user.isAdmin) {
+        res.json(true)
+    } else {
+        res.json(false)
+    }
+  }
 };
 
 export default handlers;

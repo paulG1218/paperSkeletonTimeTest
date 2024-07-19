@@ -13,6 +13,7 @@ import axios from "axios";
 import AllProudcts from "./pages/AllProudcts.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
 import Cart from "./pages/Cart.jsx";
+import AdminDash from "./pages/AdminDash.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -48,6 +49,15 @@ const router = createBrowserRouter(
           loader={async () => {
             const res = await axios.get("/api/cart")
             return {cart: res.data}
+          }}
+        />
+        <Route 
+          path="/adminDash"
+          element={<AdminDash/>}
+          loader={async () => {
+            const adminCheck = await axios.get("/api/adminCheck")
+            const products = await axios.get("/api/products")
+            return {isAdmin: adminCheck.data, products: products.data}
           }}
         />
     </Route>

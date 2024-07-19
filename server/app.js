@@ -41,6 +41,8 @@ app.get("/api/products/:productId", async (req, res) => {
   res.json(product);
 });
 
+app.get("/api/adminCheck", handlers.adminCheck)
+
 app.get("/api/:category", handlers.getProducts);
 
 ViteExpress.listen(app, port, () =>

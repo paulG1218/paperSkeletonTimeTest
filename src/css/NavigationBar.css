@@ -100,6 +100,14 @@ p.cart-link {
     padding-left: 1rem;
 }
 
+p.dashboard-link {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
 
 img.search-svg {
     width: 16.38px;
