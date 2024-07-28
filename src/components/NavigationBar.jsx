@@ -51,7 +51,6 @@ const NavigationBar = () => {
           type: "authenticated",
           payload: res.data.user,
         });
-        console.log(res.data.user.isAdmin);
       } else {
         console.log(res.data);
       }

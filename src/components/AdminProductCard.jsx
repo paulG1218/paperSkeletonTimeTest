@@ -1,17 +1,21 @@
 import React from 'react'
 import { Card, Col, Container, Row, Button } from 'react-bootstrap'
 import "../css/AdminProductCard.css"
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const AdminProductCard = ({product}) => {
+    const navigate = useNavigate()
 
     const handleEdit = () => {
-        return
+        navigate(`/addProduct?productId=${product.productId}`)
     }
 
-    const handleDelete = () => {
-        return
+    const handleDelete = async () => {
+        const res = await axios.delete(`/api/products/${product.productId}`)
+        console.log(res.data)
     }
-    
+
   return (
     <Card className='admin-card'>
         <Card.Img src={product.image} className='admin-card-image'/>

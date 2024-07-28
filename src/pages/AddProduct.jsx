@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
 import "../css/AddProduct.css";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useSearchParams } from "react-router-dom";
 
 const AddProduct = () => {
-  const isAdmin = useSelector((state) => state.isAdmin);
+  const {isAdmin} = useLoaderData()
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const navigate = useNavigate();
 
+  const isEditing = searchParams.get('productId');
+
+  const [editingProduct, setEditingProduct] = useState()
   const [colorCount, setColorCount] = useState([1]);
   const [colorInputs, setColorInputs] = useState([]);
   const [sizesState, setSizesState] = useState({
@@ -22,10 +26,20 @@ const AddProduct = () => {
   });
 
   useEffect(() => {
+    if (!isAdmin) {
+        navigate("/")
+    }
+    if (isEditing) {
+        handleEditMode()
+    }
+  }, [])
+
+  useEffect(() => {
     setColorInputs(
       colorCount.map((colorId) => {
+        console.log(colorId)
         return (
-          <Form.Control key={colorId} type="color" className="color-select" />
+          <Form.Control key={colorId} type="color" className="color-select"/>
         );
       })
     );
@@ -33,10 +47,6 @@ const AddProduct = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!isAdmin) {
-      window.location.href = "/";
-    }
 
     const colorsArray = colorCount.map((x) => {
       return e.target[x + 15].value;
@@ -61,8 +71,6 @@ const AddProduct = () => {
         tagsArray.push(e.target[i + 10].name);
       }
     }
-
-    console.log(e);
     const productData = {
       title: e.target[0].value,
       description: e.target[1].value,
@@ -72,31 +80,65 @@ const AddProduct = () => {
       sizes: sizesArray,
       tags: tagsArray,
     };
-    const res = await axios.post("/api/addProduct", productData);
+    if (isEditing) {
+        const res = await axios.put(`/api/editProduct/${editingProduct.productId}`, productData)
+        navigate(`/products/${res.data.product.productId}`);
+    } else {
+        const res = await axios.post("/api/addProduct", productData);
+        navigate(`/products/${res.data.product.productId}`);
+    }
 
-    navigate(`/products/${res.data.product.productId}`);
   };
+
+  const handleEditMode = async () => {
+    const res = await axios.get(`/api/products/${isEditing}`)
+    const {colors, sizes, tags} = res.data
+    setEditingProduct(res.data)
+    console.log(colors.length)
+    const newColorCount = []
+    for (let i = 0; i < colors.length; i++) {
+        newColorCount.push(i + 1)
+    }
+    setColorCount(newColorCount)
+    setColorInputs(
+        newColorCount.map((colorId) => {
+          return (
+            <Form.Control key={colorId} type="color" className="color-select" defaultValue={colors[colorId - 1]}/>
+          );
+        })
+      );
+      if (sizes.length === 1 && sizes[0] === "one size") {
+        setSizesState({...sizesState, OS: true})
+      } else {
+          for (let i = 0; i < sizes.length; i++) {
+            setSizesState((prevState) => {
+                return {...prevState,
+                [sizes[i].toUpperCase()]: true}
+            })
+          }
+      }
+  }
 
   return (
     <Container>
       <Form className="add-product-form" onSubmit={(e) => handleSubmit(e)}>
         <Row className="add-title-row">
           <Form.Label>Title</Form.Label>
-          <Form.Control required />
+          <Form.Control required defaultValue={editingProduct ? editingProduct.title : ''}/>
         </Row>
         <Row className="add-description-row">
           <Form.Label>Description</Form.Label>
-          <Form.Control required />
+          <Form.Control required  defaultValue={editingProduct ? editingProduct.description : ''}/>
         </Row>
         <Row className="add-image-row">
           <Form.Label>Image URL</Form.Label>
-          <Form.Control type="url" required />
+          <Form.Control type="url" required  defaultValue={editingProduct ? editingProduct.image : ''}/>
         </Row>
         <Row className="add-price-row">
           <Form.Label>Price</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control type="number" step="0.01" required />
+            <Form.Control type="number" step="0.01" required  defaultValue={editingProduct ? editingProduct.price : ''}/>
           </InputGroup>
         </Row>
         <Row className="add-sizes-row">
@@ -162,36 +204,42 @@ const AddProduct = () => {
             label="Women"
             className="tag-checkbox"
             name="women"
+            defaultChecked={editingProduct && editingProduct.tags.includes("women")}
           />
           <Form.Check
             type="checkbox"
             label="Men"
             className="tag-checkbox"
             name="men"
+            defaultChecked={editingProduct && editingProduct.tags.includes("men")}
           />
           <Form.Check
             type="checkbox"
             label="Shoes"
             className="tag-checkbox"
             name="shoes"
+            defaultChecked={editingProduct && editingProduct.tags.includes("shoes")}
           />
           <Form.Check
             type="checkbox"
             label="Accessories"
             className="tag-checkbox"
             name="accessories"
+            defaultChecked={editingProduct && editingProduct.tags.includes("accessories")}
           />
           <Form.Check
             type="checkbox"
             label="Sale"
             className="tag-checkbox"
             name="sale"
+            defaultChecked={editingProduct && editingProduct.tags.includes("sale")}
           />
           <Form.Check
             type="checkbox"
             label="New"
             className="tag-checkbox"
             name="new"
+            defaultChecked={editingProduct && editingProduct.tags.includes("new")}
           />
         </Row>
         <Row className="add-colors-row">
@@ -218,7 +266,7 @@ const AddProduct = () => {
           </button>
         </Row>
         <Button size="lg" className="create-item-btn" type="submit">
-          Create
+          {isEditing ? "Update" : "Create"}
         </Button>
       </Form>
     </Container>

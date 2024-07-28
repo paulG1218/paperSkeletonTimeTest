@@ -24,11 +24,23 @@ app.get("/api/sessionCheck", handlers.sessionCheck);
 
 app.post("/api/addProduct", handlers.AddProduct);
 
+app.put("/api/editProduct/:productId", handlers.editProduct)
+
 app.post("/api/cart", handlers.addCart);
 
 app.get("/api/cart", handlers.getCart);
 
 app.put("/api/editCart", handlers.editCart);
+
+app.delete("/api/products/:productId", async (req, res) => {
+  const { productId } = req.params;
+  await Product.destroy({
+    where: {
+      productId: productId
+    }
+  });
+  res.json({message: 'deleted'});
+});
 
 app.get("/api/products", async (req, res) => {
   const products = await Product.findAll();

@@ -43,6 +43,10 @@ const router = createBrowserRouter(
         />
         <Route path="/addProduct"
           element={<AddProduct/>}
+          loader={async () => {
+            const adminCheck = await axios.get("/api/adminCheck")
+            return {isAdmin: adminCheck.data}
+          }}
         />
         <Route path="/cart"
           element={<Cart/>}

@@ -152,6 +152,24 @@ const handlers = {
       });
     }
   },
+  editProduct: async (req, res) => {
+    const {productId} = req.params
+    const { title, description, image, price, colors, sizes, tags } = req.body;
+    const product = await Product.findByPk(productId)
+    const newProduct = await product.update({
+        title: title,
+        description: description,
+        image: image,
+        price: price,
+        colors: colors,
+        sizes: sizes,
+        tags: tags
+    })
+    res.json({
+        message: "product modified",
+        product: newProduct,
+      });
+  },
 
   addCart: async (req, res) => {
     if (req.session.cart) {
