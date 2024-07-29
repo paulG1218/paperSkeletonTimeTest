@@ -8,7 +8,7 @@ import axios from 'axios'
 
 const AllProudcts = () => {
 
-  const {category, initialProducts, productCount} = useLoaderData()
+  const {tab, initialProducts, productCount} = useLoaderData()
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -23,7 +23,7 @@ const AllProudcts = () => {
 
     const getProducts = async () => {
       console.log(sortState, page, itemsPerPage)
-      const res = await axios.get(`/api/${category}?page=${page}&sort=${sortState}&itemsPerPage=${itemsPerPage}`)
+      const res = await axios.get(`/api/browse/${tab}?page=${page}&sort=${sortState}&itemsPerPage=${itemsPerPage}`)
       setProducts(res.data.products)
     }
 
@@ -58,7 +58,6 @@ const AllProudcts = () => {
         returnArray.push(<button key={i} className='pagination-btn' onClick={() => setPage(i)} style={i === page ? {"fontWeight": "700"} : {"fontWeight": "300"}}>{i + 1}</button>)
       }
       maxPage = returnArray.length - 1
-      console.log(maxPage)
       return returnArray
     }
 

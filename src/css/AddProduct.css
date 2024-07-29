@@ -36,11 +36,11 @@ button.remove-color {
     margin: 2px;
 }
 
-.add-sizes-row {
+.checkbox-row {
     justify-content: center;
 }
 
-.size-checkbox.form-check {
+.add-product-checkbox.form-check {
     width: fit-content;
     margin: 5px;
 }

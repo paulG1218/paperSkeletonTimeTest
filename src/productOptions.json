@@ -1,0 +1,26 @@
+{
+    "genders": ["men", "women", "unisex"],
+    "categories": {
+        "clothing": {
+            "shirts": ["long sleeve", "button-up", "t-shirts", "tank tops"], 
+            "pants": ["pants", "jeans", "sweatpants"], 
+            "shorts": ["shorts", "demin"], 
+            "activewear": [],
+            "dresses/skirts": ["dresses", "skirts"], 
+            "outerwear": ["jackets", "hoodies", "sweaters"]
+        },
+        "shoes": {
+            "running": [],
+            "boots": [],
+            "sneakers": ["high top", "low top", "mid top"],
+            "sandals": []
+        },
+        "accessories": {
+            "hats": ["baseball hats", "sun hats", "beanies", "bucket hats"],
+            "bags": ["backpacks", "fanny packs", "tote bags"],
+            "sunglasses": [],
+            "jewlery": ["earrings", "necklaces", "braclets"],
+            "scarves": []
+        }
+    }
+}

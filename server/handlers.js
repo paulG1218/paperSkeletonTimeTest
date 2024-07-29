@@ -85,7 +85,7 @@ const handlers = {
   },
 
   getProducts: async (req, res) => {
-    const { category } = req.params;
+    const { tab } = req.params;
     const { sort, page = 1, itemsPerPage = 2 } = req.query;
     const determineOrder = () => {
       switch (sort) {
@@ -104,7 +104,7 @@ const handlers = {
 
     const products = await Product.findAll({
       where: {
-        tags: { [Op.contains]: [category] },
+        [Op.or]: [{category: tab}, {gender: tab}],
       },
       order: order,
       offset: page * itemsPerPage,
@@ -112,7 +112,7 @@ const handlers = {
     });
     const count = await Product.findAndCountAll({
       where: {
-        tags: { [Op.contains]: [category] },
+        [Op.or]: [{category: tab}, {gender: tab}],
       },
     });
     res.json({

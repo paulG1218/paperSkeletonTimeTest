@@ -55,7 +55,7 @@ app.get("/api/products/:productId", async (req, res) => {
 
 app.get("/api/adminCheck", handlers.adminCheck)
 
-app.get("/api/:category", handlers.getProducts);
+app.get("/api/browse/:tab", handlers.getProducts);
 
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)

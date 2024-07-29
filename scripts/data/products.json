@@ -6,7 +6,10 @@
         "price": 49.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["new", "women"]
+        "gender": "women",
+        "category": "clothing",
+        "subcategory": "outerwear",
+        "tag": "jacket"
     },
     {
         "title": "Black Leather Boots",
@@ -15,7 +18,10 @@
         "price": 89.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["7", "8", "9", "10", "11", "12"],
-        "tags": ["new", "women", "shoes"]
+        "gender": "men",
+        "category": "shoes",
+        "subcategory": "boots",
+        "tag": ""
     },
     {
         "title": "White Linen Shirt",
@@ -24,7 +30,10 @@
         "price": 35.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["men"]
+        "gender": "unisex",
+        "category": "clothing",
+        "subcategory": "shirts",
+        "tag": "long sleeve"
     },
     {
         "title": "Pleated Midi Skirt",
@@ -33,7 +42,10 @@
         "price": 42.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["women"]
+        "gender": "women",
+        "category": "clothing",
+        "subcategory": "dresses/skirts",
+        "tag": "skirts"
     },
     {
         "title": "Graphic Tee",
@@ -42,7 +54,10 @@
         "price": 24.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["women", "men"]
+        "gender": "men",
+        "category": "clothing",
+        "subcategory": "shirts",
+        "tag": "t-shirt"
     },
     {
         "title": "Silk Scarf",
@@ -51,7 +66,10 @@
         "price": 29.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["one size"],
-        "tags": ["new", "women", "accessories"]
+        "gender": "unisex",
+        "category": "accessories",
+        "subcategory": "scarves",
+        "tag": ""
     },
     {
         "title": "Wool Fedora Hat",
@@ -60,7 +78,10 @@
         "price": 34.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["one size"],
-        "tags": ["men", "accessories"]
+        "gender": "women",
+        "category": "accessories",
+        "subcategory": "hats",
+        "tag": "fedora"
     },
     {
         "title": "Floral Print Dress",
@@ -69,7 +90,10 @@
         "price": 58.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["new", "women"]
+        "gender": "women",
+        "category": "clothing",
+        "subcategory": "dresses/skirts",
+        "tag": "dresses"
     },
     {
         "title": "Cashmere Sweater",
@@ -78,7 +102,10 @@
         "price": 79.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["women"]
+        "gender": "men",
+        "category": "clothing",
+        "subcategory": "outerwear",
+        "tag": "sweaters"
     },
     {
         "title": "High Waisted Jeans",
@@ -87,7 +114,10 @@
         "price": 54.99,
         "colors": ["#ff0000", "#000000", "#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["women", "sale"]
+        "gender": "women",
+        "category": "clothing",
+        "subcategory": "pants",
+        "tag": "denim"
     },
     {
         "title": "example",
@@ -96,6 +126,9 @@
         "price": 54.99,
         "colors": ["#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
-        "tags": ["men", "sale"]
+        "gender": "unisex",
+        "category": "accessories",
+        "subcategory": "hats",
+        "tag": "baseball hats"
     }
 ]
