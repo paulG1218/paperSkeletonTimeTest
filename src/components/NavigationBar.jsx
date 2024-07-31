@@ -51,7 +51,6 @@ const NavigationBar = () => {
           type: "authenticated",
           payload: res.data.user,
         });
-        console.log(res.data.user.isAdmin);
       } else {
         console.log(res.data);
       }
@@ -225,8 +224,11 @@ const NavigationBar = () => {
           </Col>
           <Col className="links-column">
             {isAdmin && (
-              <Nav.Link href="/addProduct">
-                <p>Add product</p>
+              <Nav.Link href="/adminDash">
+                <p className="dashboard-link">
+                  <img src="/control.svg" alt="" className="control-svg"/>
+                  Dashboard
+                </p>
               </Nav.Link>
             )}
             <Nav.Link onClick={handleOpen}>
@@ -257,22 +259,22 @@ const NavigationBar = () => {
       <Navbar className="navigation-bar bottom">
         <Container className="category-container" fluid>
           <Nav variant="underline" className="justify-content-center" as={Col}>
-            <Nav.Link className="category" href="/new">
+            <Nav.Link className="category" href="#browse/new">
               new arrivals
             </Nav.Link>
-            <Nav.Link className="category" href="/men">
+            <Nav.Link className="category" href="/browse/men">
               men
             </Nav.Link>
-            <Nav.Link className="category" href="/women">
+            <Nav.Link className="category" href="/browse/women">
               women
             </Nav.Link>
-            <Nav.Link className="category" href="/accessories">
+            <Nav.Link className="category" href="/browse/accessories">
               accessories
             </Nav.Link>
-            <Nav.Link className="category" href="/shoes">
+            <Nav.Link className="category" href="/browse/shoes">
               shoes
             </Nav.Link>
-            <Nav.Link className="category" href="/sale">
+            <Nav.Link className="category" href="#browse/sale">
               sale
             </Nav.Link>
           </Nav>

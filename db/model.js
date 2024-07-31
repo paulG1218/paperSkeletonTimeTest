@@ -70,8 +70,20 @@ Product.init(
     sizes: {
       type: DataTypes.ARRAY(DataTypes.STRING),
     },
+    gender: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    subcategory: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     tags: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
     },
   },
   {

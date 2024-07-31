@@ -1,5 +1,6 @@
 import { Product, User } from "../db/model.js";
 import { Op } from "sequelize";
+import productOptions from "../src/productOptions.json" assert { type: "json" };
 
 const handlers = {
   login: async (req, res) => {
@@ -85,7 +86,7 @@ const handlers = {
   },
 
   getProducts: async (req, res) => {
-    const { category } = req.params;
+    const { tab } = req.params;
     const { sort, page = 1, itemsPerPage = 2 } = req.query;
     const determineOrder = () => {
       switch (sort) {
@@ -102,19 +103,52 @@ const handlers = {
 
     const order = determineOrder();
 
-    const products = await Product.findAll({
-      where: {
-        tags: { [Op.contains]: [category] },
-      },
-      order: order,
-      offset: page * itemsPerPage,
-      limit: itemsPerPage,
-    });
-    const count = await Product.findAndCountAll({
-      where: {
-        tags: { [Op.contains]: [category] },
-      },
-    });
+    let products
+
+    let count
+
+    const productsQuery = async () => {
+        if (Object.keys(productOptions.categories).includes(tab)) {
+            products = await Product.findAll({
+                where: {
+                    category: tab
+                },
+                order: order,
+                offset: page * itemsPerPage,
+                limit: itemsPerPage,
+            });
+
+            count = await Product.findAndCountAll({
+                where: {
+                    category: tab
+                }
+              });
+        } else {
+            products = await Product.findAll({
+                where: {
+                    [Op.or]: [
+                        {gender: tab},
+                        {gender: "unisex"}
+                    ]
+                },
+                order: order,
+                offset: page * itemsPerPage,
+                limit: itemsPerPage,
+            });
+
+            count = await Product.findAndCountAll({
+                where: {
+                    [Op.or]: [
+                        {gender: tab},
+                        {gender: "unisex"}
+                    ]
+                }
+              });
+        }
+}
+
+await productsQuery()
+
     res.json({
       products: products,
       count: count,
@@ -152,6 +186,27 @@ const handlers = {
       });
     }
   },
+  editProduct: async (req, res) => {
+    const {productId} = req.params
+    const { title, description, image, price, colors, sizes, gender, category, subcategory, tag } = req.body;
+    const product = await Product.findByPk(productId)
+    const newProduct = await product.update({
+        title: title,
+        description: description,
+        image: image,
+        price: price,
+        colors: colors,
+        sizes: sizes,
+        gender: gender,
+        category: category,
+        subcategory: subcategory,
+        tag: tag
+    })
+    res.json({
+        message: "product modified",
+        product: newProduct,
+      });
+  },
 
   addCart: async (req, res) => {
     if (req.session.cart) {
@@ -182,6 +237,14 @@ const handlers = {
     }
     res.json(req.session.cart);
   },
+
+  adminCheck: async (req, res) => {
+    if (req.session.user && req.session.user.isAdmin) {
+        res.json(true)
+    } else {
+        res.json(false)
+    }
+  }
 };
 
 export default handlers;

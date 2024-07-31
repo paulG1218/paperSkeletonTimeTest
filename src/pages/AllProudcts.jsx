@@ -8,7 +8,7 @@ import axios from 'axios'
 
 const AllProudcts = () => {
 
-  const {category, initialProducts, productCount} = useLoaderData()
+  const {tab, initialProducts, productCount} = useLoaderData()
 
     const [searchParams, setSearchParams] = useSearchParams()
 
@@ -23,7 +23,7 @@ const AllProudcts = () => {
 
     const getProducts = async () => {
       console.log(sortState, page, itemsPerPage)
-      const res = await axios.get(`/api/${category}?page=${page}&sort=${sortState}&itemsPerPage=${itemsPerPage}`)
+      const res = await axios.get(`/api/browse/${tab}?page=${page}&sort=${sortState}&itemsPerPage=${itemsPerPage}`)
       setProducts(res.data.products)
     }
 
@@ -58,7 +58,6 @@ const AllProudcts = () => {
         returnArray.push(<button key={i} className='pagination-btn' onClick={() => setPage(i)} style={i === page ? {"fontWeight": "700"} : {"fontWeight": "300"}}>{i + 1}</button>)
       }
       maxPage = returnArray.length - 1
-      console.log(maxPage)
       return returnArray
     }
 
@@ -80,11 +79,11 @@ const AllProudcts = () => {
       <Row>
         <Col xs={{span: 1}} className='sidebar-col'>
           <h5 className='sidebar-title'>shop by category</h5>
-          <NavLink href="/men" className='sidebar-category'>men</NavLink>
-          <NavLink href="/women" className='sidebar-category'>women</NavLink>
-          <NavLink href="/accessories" className='sidebar-category'>accessories</NavLink>
-          <NavLink href="/shoes" className='sidebar-category'>shoes</NavLink>
-          <NavLink href="/sale" className='sidebar-category'>sale</NavLink>
+          <NavLink href="/browse/men" className='sidebar-category'>men</NavLink>
+          <NavLink href="/browse/women" className='sidebar-category'>women</NavLink>
+          <NavLink href="/browse/accessories" className='sidebar-category'>accessories</NavLink>
+          <NavLink href="/browse/shoes" className='sidebar-category'>shoes</NavLink>
+          <NavLink href="#browse/sale" className='sidebar-category'>sale</NavLink>
         </Col>
         <Col>
           <Row xs={3} className="products-row">

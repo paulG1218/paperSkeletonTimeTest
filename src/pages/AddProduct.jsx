@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Container, Form, InputGroup, Row } from "react-bootstrap";
 import "../css/AddProduct.css";
 import axios from "axios";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate, useSearchParams } from "react-router-dom";
+import productOptions from "../productOptions.json"
 
 const AddProduct = () => {
-  const isAdmin = useSelector((state) => state.isAdmin);
+  const {isAdmin} = useLoaderData()
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const navigate = useNavigate();
 
+  const isEditing = searchParams.get('productId');
+
+  const [editingProduct, setEditingProduct] = useState()
   const [colorCount, setColorCount] = useState([1]);
   const [colorInputs, setColorInputs] = useState([]);
   const [sizesState, setSizesState] = useState({
@@ -20,12 +25,25 @@ const AddProduct = () => {
     XL: false,
     OS: false,
   });
+  const [genderState, setGenderState] = useState('')
+  const [categoryState, setCategoryState] = useState('')
+  const [subCategoryState, setSubCategoryState] = useState('')
+  const [tagState, setTagState] = useState('')
+
+  useEffect(() => {
+    if (!isAdmin) {
+        navigate("/")
+    }
+    if (isEditing) {
+        handleEditMode()
+    }
+  }, [])
 
   useEffect(() => {
     setColorInputs(
       colorCount.map((colorId) => {
         return (
-          <Form.Control key={colorId} type="color" className="color-select" />
+          <Form.Control key={colorId} type="color" className="color-select"/>
         );
       })
     );
@@ -34,12 +52,8 @@ const AddProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!isAdmin) {
-      window.location.href = "/";
-    }
-
     const colorsArray = colorCount.map((x) => {
-      return e.target[x + 15].value;
+      return e.target[x + 9].value;
     });
 
     let sizesArray = [];
@@ -54,15 +68,6 @@ const AddProduct = () => {
       }
     }
 
-    let tagsArray = [];
-
-    for (let i = 0; i < 6; i++) {
-      if (e.target[i + 10].checked) {
-        tagsArray.push(e.target[i + 10].name);
-      }
-    }
-
-    console.log(e);
     const productData = {
       title: e.target[0].value,
       description: e.target[1].value,
@@ -70,41 +75,120 @@ const AddProduct = () => {
       price: e.target[3].value,
       colors: colorsArray,
       sizes: sizesArray,
-      tags: tagsArray,
+      gender: genderState,
+      category: categoryState,
+      subcategory: subCategoryState,
+      tag: tagState,
     };
-    const res = await axios.post("/api/addProduct", productData);
+    if (isEditing) {
+        const res = await axios.put(`/api/editProduct/${editingProduct.productId}`, productData)
+        navigate(`/products/${res.data.product.productId}`);
+    } else {
+        const res = await axios.post("/api/addProduct", productData);
+        navigate(`/products/${res.data.product.productId}`);
+    }
 
-    navigate(`/products/${res.data.product.productId}`);
   };
+
+  const handleEditMode = async () => {
+    const res = await axios.get(`/api/products/${isEditing}`)
+    const {colors, sizes, gender, category, subcategory, tag} = res.data
+    setEditingProduct(res.data)
+    console.log(colors.length)
+    const newColorCount = []
+    for (let i = 0; i < colors.length; i++) {
+        newColorCount.push(i + 1)
+    }
+    setColorCount(newColorCount)
+    setColorInputs(
+        newColorCount.map((colorId) => {
+          return (
+            <Form.Control key={colorId} type="color" className="color-select" defaultValue={colors[colorId - 1]}/>
+          );
+        })
+      );
+      if (sizes[0] === "one size") {
+        setSizesState({...sizesState, OS: true})
+      } else {
+          for (let i = 0; i < sizes.length; i++) {
+            setSizesState((prevState) => {
+                return {...prevState,
+                [sizes[i].toUpperCase()]: true}
+            })
+          }
+      }
+      setGenderState(gender)
+      setCategoryState(category)
+      setSubCategoryState(subcategory)
+      setTagState(tag)
+  }
+
+  const subCategoryChecks = () => {
+    if (categoryState) {
+        const subcategories = Object.keys(productOptions.categories[categoryState])
+        return subcategories.map((sc) => {
+            return (<Form.Check
+                type="checkbox"
+                label={sc.charAt(0).toUpperCase() + sc.slice(1)}
+                className="add-product-checkbox"
+                onChange={() => setSubCategoryState(subCategoryState === sc ? '' : sc)}
+                checked={subCategoryState === sc}
+              />)
+        })
+    } else {
+        return "Please select a category first"
+    }
+  }
+
+  const tagChecks = () => {
+    if (subCategoryState) {
+        const tags = productOptions.categories[categoryState][subCategoryState]
+        if (tags.length) {
+            return tags.map((tag) => {
+                return <Form.Check
+                    type="checkbox"
+                    label={tag.charAt(0).toUpperCase() + tag.slice(1)}
+                    className="add-product-checkbox"
+                    onChange={() => setTagState(tagState === tag ? '' : tag)}
+                    checked={tagState === tag}
+                  />
+            })
+        } else {
+            return "There are no tags for this subcategory"
+        }
+    } else {
+        return "Please select a subcategory first"
+    }
+  }
 
   return (
     <Container>
       <Form className="add-product-form" onSubmit={(e) => handleSubmit(e)}>
         <Row className="add-title-row">
           <Form.Label>Title</Form.Label>
-          <Form.Control required />
+          <Form.Control required defaultValue={editingProduct ? editingProduct.title : ''}/>
         </Row>
         <Row className="add-description-row">
           <Form.Label>Description</Form.Label>
-          <Form.Control required />
+          <Form.Control required  defaultValue={editingProduct ? editingProduct.description : ''}/>
         </Row>
         <Row className="add-image-row">
           <Form.Label>Image URL</Form.Label>
-          <Form.Control type="url" required />
+          <Form.Control type="url" required  defaultValue={editingProduct ? editingProduct.image : ''}/>
         </Row>
         <Row className="add-price-row">
           <Form.Label>Price</Form.Label>
           <InputGroup>
             <InputGroup.Text>$</InputGroup.Text>
-            <Form.Control type="number" step="0.01" required />
+            <Form.Control type="number" step="0.01" required  defaultValue={editingProduct ? editingProduct.price : ''}/>
           </InputGroup>
         </Row>
-        <Row className="add-sizes-row">
+        <Row className="checkbox-row">
           <Form.Label>Sizes</Form.Label>
           <Form.Check
             type="checkbox"
             label="XS"
-            className="size-checkbox"
+            className="add-product-checkbox"
             disabled={sizesState.OS}
             onChange={() =>
               setSizesState({ ...sizesState, XS: !sizesState.XS })
@@ -114,7 +198,7 @@ const AddProduct = () => {
           <Form.Check
             type="checkbox"
             label="S"
-            className="size-checkbox"
+            className="add-product-checkbox"
             disabled={sizesState.OS}
             onChange={() => setSizesState({ ...sizesState, S: !sizesState.S })}
             checked={sizesState.S && !sizesState.OS}
@@ -122,7 +206,7 @@ const AddProduct = () => {
           <Form.Check
             type="checkbox"
             label="M"
-            className="size-checkbox"
+            className="add-product-checkbox"
             disabled={sizesState.OS}
             onChange={() => setSizesState({ ...sizesState, M: !sizesState.M })}
             checked={sizesState.M && !sizesState.OS}
@@ -130,7 +214,7 @@ const AddProduct = () => {
           <Form.Check
             type="checkbox"
             label="L"
-            className="size-checkbox"
+            className="add-product-checkbox"
             disabled={sizesState.OS}
             onChange={() => setSizesState({ ...sizesState, L: !sizesState.L })}
             checked={sizesState.L && !sizesState.OS}
@@ -138,7 +222,7 @@ const AddProduct = () => {
           <Form.Check
             type="checkbox"
             label="XL"
-            className="size-checkbox"
+            className="add-product-checkbox"
             disabled={sizesState.OS}
             onChange={() =>
               setSizesState({ ...sizesState, XL: !sizesState.XL })
@@ -148,50 +232,11 @@ const AddProduct = () => {
           <Form.Check
             type="checkbox"
             label="One Size"
-            className="size-checkbox"
+            className="add-product-checkbox"
             onChange={() =>
               setSizesState({ ...sizesState, OS: !sizesState.OS })
             }
             checked={sizesState.OS}
-          />
-        </Row>
-        <Row className="add-tags-row">
-          <Form.Label>Tags</Form.Label>
-          <Form.Check
-            type="checkbox"
-            label="Women"
-            className="tag-checkbox"
-            name="women"
-          />
-          <Form.Check
-            type="checkbox"
-            label="Men"
-            className="tag-checkbox"
-            name="men"
-          />
-          <Form.Check
-            type="checkbox"
-            label="Shoes"
-            className="tag-checkbox"
-            name="shoes"
-          />
-          <Form.Check
-            type="checkbox"
-            label="Accessories"
-            className="tag-checkbox"
-            name="accessories"
-          />
-          <Form.Check
-            type="checkbox"
-            label="Sale"
-            className="tag-checkbox"
-            name="sale"
-          />
-          <Form.Check
-            type="checkbox"
-            label="New"
-            className="tag-checkbox"
-            name="new"
           />
         </Row>
         <Row className="add-colors-row">
@@ -217,8 +262,74 @@ const AddProduct = () => {
             -
           </button>
         </Row>
+        <Row className="checkbox-row">
+          <Form.Label>Gender</Form.Label>
+          <Form.Check
+            type="checkbox"
+            label="Men"
+            className="add-product-checkbox"
+            onChange={() => setGenderState(genderState === 'men' ? '' : 'men')}
+            checked={genderState === 'men'}
+          />
+          <Form.Check
+            type="checkbox"
+            label="Women"
+            className="add-product-checkbox"
+            onChange={() => setGenderState(genderState === 'women' ? '' : 'women')}
+            checked={genderState === 'women'}
+          />
+          <Form.Check
+            type="checkbox"
+            label="Unisex"
+            className="add-product-checkbox"
+            onChange={() => setGenderState(genderState === 'unisex' ? '' : 'unisex')}
+            checked={genderState === 'unisex'}
+          />
+        </Row>
+        <Row className="checkbox-row">
+          <Form.Label>Category</Form.Label>
+          <Form.Check
+            type="checkbox"
+            label="Clothing"
+            className="add-product-checkbox"
+            onChange={() => {
+                setCategoryState(categoryState === 'clothing' ? '' : 'clothing')
+                setSubCategoryState('')
+            }}
+            checked={categoryState === 'clothing'}
+          />
+          <Form.Check
+            type="checkbox"
+            label="Shoes"
+            className="add-product-checkbox"
+            onChange={() => {
+                setCategoryState(categoryState === 'shoes' ? '' : 'shoes')
+                setSubCategoryState('')
+            }}
+            checked={categoryState === 'shoes'}
+          />
+          <Form.Check
+            type="checkbox"
+            label="Accessories"
+            className="add-product-checkbox"
+            onChange={() => {
+                setCategoryState(categoryState === 'accessories' ? '' : 'accessories')
+                setSubCategoryState('')
+
+            }}
+            checked={categoryState === 'accessories'}
+          />
+        </Row>
+        <Row className="checkbox-row">
+          <Form.Label>Subcategory</Form.Label>
+          {subCategoryChecks()}
+        </Row>
+        <Row className="checkbox-row">
+          <Form.Label>Tags</Form.Label>
+          {tagChecks()}
+        </Row>
         <Button size="lg" className="create-item-btn" type="submit">
-          Create
+          {isEditing ? "Update" : "Create"}
         </Button>
       </Form>
     </Container>

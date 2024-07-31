@@ -93,8 +93,6 @@ h6.best-sellers {
     margin-bottom: 24px;
 }
 
-.products-row.row {
+.products-row.row.row-cols-4 {
     max-width: 1296px;
-    margin-left: auto;
-    margin-right: auto;
 }
