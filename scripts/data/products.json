@@ -9,7 +9,7 @@
         "gender": "women",
         "category": "clothing",
         "subcategory": "outerwear",
-        "tag": "jacket"
+        "tag": "jackets"
     },
     {
         "title": "Black Leather Boots",
@@ -57,7 +57,7 @@
         "gender": "men",
         "category": "clothing",
         "subcategory": "shirts",
-        "tag": "t-shirt"
+        "tag": "t-shirts"
     },
     {
         "title": "Silk Scarf",
@@ -81,7 +81,7 @@
         "gender": "women",
         "category": "accessories",
         "subcategory": "hats",
-        "tag": "fedora"
+        "tag": ""
     },
     {
         "title": "Floral Print Dress",
@@ -117,7 +117,7 @@
         "gender": "women",
         "category": "clothing",
         "subcategory": "pants",
-        "tag": "denim"
+        "tag": "jeans"
     },
     {
         "title": "example",

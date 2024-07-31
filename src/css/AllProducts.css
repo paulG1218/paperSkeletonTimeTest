@@ -1,7 +1,13 @@
+.all-products-row.row{
+    justify-content: space-between;
+}
+
+.products-col.col {
+    max-width: fit-content;
+}
+
 .products-row.row {
     max-width: 966px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 48px;
 }
 
@@ -26,10 +32,15 @@ p.products-header {
     font-size: 14px;
 }
 
+.sidebar-col.col {
+    max-width: fit-content;
+}
+
 .sidebar-title {
     font-weight: 700;
     text-align: left;
-    margin-left: 32px;
+    margin-left: 24px;
+    margin-top: 16px;
 }
 
 .sidebar-category.nav-link {
@@ -43,6 +54,14 @@ p.products-header {
         color: black;
         cursor: pointer;
     }
+}
+
+.sidebar-category.subcategory.nav-link {
+    margin-left: 64px;
+}
+
+.sidebar-category.tag.nav-link {
+    margin-left: 96px;
 }
 
 .sort-by-dropdown.dropdown {
