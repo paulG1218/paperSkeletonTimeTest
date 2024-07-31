@@ -3,8 +3,8 @@
     "categories": {
         "clothing": {
             "shirts": ["long sleeve", "button-up", "t-shirts", "tank tops"], 
-            "pants": ["pants", "jeans", "sweatpants"], 
-            "shorts": ["shorts", "demin"], 
+            "pants": ["jeans", "sweatpants"], 
+            "shorts": ["demin"], 
             "activewear": [],
             "dresses/skirts": ["dresses", "skirts"], 
             "outerwear": ["jackets", "hoodies", "sweaters"]

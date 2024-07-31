@@ -262,10 +262,10 @@ const NavigationBar = () => {
             <Nav.Link className="category" href="#browse/new">
               new arrivals
             </Nav.Link>
-            <Nav.Link className="category" href="/browse/men">
+            <Nav.Link className="category" href="/browse/all?g=men">
               men
             </Nav.Link>
-            <Nav.Link className="category" href="/browse/women">
+            <Nav.Link className="category" href="/browse/all?g=women">
               women
             </Nav.Link>
             <Nav.Link className="category" href="/browse/accessories">

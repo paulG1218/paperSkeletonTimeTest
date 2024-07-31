@@ -34,11 +34,11 @@ const router = createBrowserRouter(
           return { product: res.data };
         }}
       />
-      <Route path="/browse/:tab"
+      <Route path="/browse/:category"
         element={<AllProudcts/>}
         loader={async ({params}) => {
-          const res = await axios.get(`/api/browse/${params.tab}`, {sort: "", page: 1, itemsPerPage: 2})
-          return { tab: params.tab, initialProducts: res.data.products, productCount: res.data.count.count }
+          const res = await axios.get(`/api/browse/${params.category}`, {sort: "", page: 1, itemsPerPage: 2})
+          return { category: params.category, initialProducts: res.data.products, productCount: res.data.count }
         }}
         />
         <Route path="/addProduct"

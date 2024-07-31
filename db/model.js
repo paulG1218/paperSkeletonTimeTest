@@ -82,7 +82,7 @@ Product.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    tags: {
+    tag: {
       type: DataTypes.STRING,
     },
   },

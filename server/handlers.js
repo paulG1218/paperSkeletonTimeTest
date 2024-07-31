@@ -86,8 +86,8 @@ const handlers = {
   },
 
   getProducts: async (req, res) => {
-    const { tab } = req.params;
-    const { sort, page = 1, itemsPerPage = 2 } = req.query;
+    const { category } = req.params;
+    const { sort, page = 1, itemsPerPage = 2, subcategory, tag, gender } = req.query;
     const determineOrder = () => {
       switch (sort) {
         case "price: high-low":
@@ -103,51 +103,44 @@ const handlers = {
 
     const order = determineOrder();
 
-    let products
-
-    let count
-
     const productsQuery = async () => {
-        if (Object.keys(productOptions.categories).includes(tab)) {
-            products = await Product.findAll({
-                where: {
-                    category: tab
-                },
-                order: order,
-                offset: page * itemsPerPage,
-                limit: itemsPerPage,
-            });
+        let whereClause = {};
 
-            count = await Product.findAndCountAll({
-                where: {
-                    category: tab
-                }
-              });
-        } else {
-            products = await Product.findAll({
-                where: {
-                    [Op.or]: [
-                        {gender: tab},
-                        {gender: "unisex"}
-                    ]
-                },
-                order: order,
-                offset: page * itemsPerPage,
-                limit: itemsPerPage,
-            });
-
-            count = await Product.findAndCountAll({
-                where: {
-                    [Op.or]: [
-                        {gender: tab},
-                        {gender: "unisex"}
-                    ]
-                }
-              });
+        if (category !== 'all') {
+            whereClause.category = category;
         }
-}
 
-await productsQuery()
+        if (gender && gender !== 'null') {
+            whereClause[Op.or] = [
+                { gender: gender },
+                { gender: "unisex" }
+            ];
+        }
+    
+        if (subcategory && subcategory !== 'null') {
+            whereClause.subcategory = subcategory;
+        }
+    
+        if (tag && tag !== 'null') {
+            whereClause.tag = tag;
+        }
+    
+        const products = await Product.findAll({
+            where: whereClause,
+            order: order,
+            offset: page * itemsPerPage,
+            limit: itemsPerPage,
+        });
+
+        const count = await Product.findAndCountAll({
+            where: whereClause
+        });
+    
+        return { products, count: count.count };
+    };
+
+    const {products, count} = await productsQuery()
+    console.log(count)
 
     res.json({
       products: products,
