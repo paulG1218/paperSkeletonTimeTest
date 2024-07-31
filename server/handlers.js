@@ -1,5 +1,6 @@
 import { Product, User } from "../db/model.js";
 import { Op } from "sequelize";
+import productOptions from "../src/productOptions.json" assert { type: "json" };
 
 const handlers = {
   login: async (req, res) => {
@@ -102,19 +103,52 @@ const handlers = {
 
     const order = determineOrder();
 
-    const products = await Product.findAll({
-      where: {
-        [Op.or]: [{category: tab}, {gender: tab}],
-      },
-      order: order,
-      offset: page * itemsPerPage,
-      limit: itemsPerPage,
-    });
-    const count = await Product.findAndCountAll({
-      where: {
-        [Op.or]: [{category: tab}, {gender: tab}],
-      },
-    });
+    let products
+
+    let count
+
+    const productsQuery = async () => {
+        if (Object.keys(productOptions.categories).includes(tab)) {
+            products = await Product.findAll({
+                where: {
+                    category: tab
+                },
+                order: order,
+                offset: page * itemsPerPage,
+                limit: itemsPerPage,
+            });
+
+            count = await Product.findAndCountAll({
+                where: {
+                    category: tab
+                }
+              });
+        } else {
+            products = await Product.findAll({
+                where: {
+                    [Op.or]: [
+                        {gender: tab},
+                        {gender: "unisex"}
+                    ]
+                },
+                order: order,
+                offset: page * itemsPerPage,
+                limit: itemsPerPage,
+            });
+
+            count = await Product.findAndCountAll({
+                where: {
+                    [Op.or]: [
+                        {gender: tab},
+                        {gender: "unisex"}
+                    ]
+                }
+              });
+        }
+}
+
+await productsQuery()
+
     res.json({
       products: products,
       count: count,
@@ -154,7 +188,7 @@ const handlers = {
   },
   editProduct: async (req, res) => {
     const {productId} = req.params
-    const { title, description, image, price, colors, sizes, tags } = req.body;
+    const { title, description, image, price, colors, sizes, gender, category, subcategory, tag } = req.body;
     const product = await Product.findByPk(productId)
     const newProduct = await product.update({
         title: title,
@@ -163,7 +197,10 @@ const handlers = {
         price: price,
         colors: colors,
         sizes: sizes,
-        tags: tags
+        gender: gender,
+        category: category,
+        subcategory: subcategory,
+        tag: tag
     })
     res.json({
         message: "product modified",

@@ -68,13 +68,6 @@ const AddProduct = () => {
       }
     }
 
-    let tagsArray = [];
-
-    for (let i = 0; i < 6; i++) {
-      if (e.target[i + 10].checked) {
-        tagsArray.push(e.target[i + 10].name);
-      }
-    }
     const productData = {
       title: e.target[0].value,
       description: e.target[1].value,
@@ -82,7 +75,10 @@ const AddProduct = () => {
       price: e.target[3].value,
       colors: colorsArray,
       sizes: sizesArray,
-      tags: tagsArray,
+      gender: genderState,
+      category: categoryState,
+      subcategory: subCategoryState,
+      tag: tagState,
     };
     if (isEditing) {
         const res = await axios.put(`/api/editProduct/${editingProduct.productId}`, productData)

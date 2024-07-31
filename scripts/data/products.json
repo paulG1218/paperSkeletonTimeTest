@@ -122,7 +122,7 @@
     {
         "title": "example",
         "description": "example description",
-        "image": "https://s3-alpha-sig.figma.com/img/af56/ddde/9c9da3a5fb8ffb865ccb604fbf2d7ae8?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=e~Vpb0tmaEyPpxoOqFVvJax3d7bIoxBawDLTrN1HOOUx4J3xlPmS4p2~81IRoEDK-l7izV0NWnFi6zHtWDCGVSoRXWPmSqJNvllxCGNxtZGkWXNsjGj7u7-98C23voiUingZB3FR2Y0jvwePyGlcJYerbqJ9~Z7ksMK0pYI8J-vzhAhbDkYhd51AZJCSCYd~5X-euaJgMgVZF2I0nYAoI3Q7I8On-Qqum4TdALMU7d9EdUYdYGmVf~~DPNJyMA0ZEm1LTeElRmUPqAk5aV0uzD6psd-J45Vyla-9WBLTP1eSrP~0l7-Qsuz5UYkBIEERJ78IkD2rokN7YMKBLbp4cA__",
+        "image": "https://s3-alpha-sig.figma.com/img/af56/ddde/9c9da3a5fb8ffb865ccb604fbf2d7ae8?Expires=1723420800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=TcXM12RxYfBnJjwUgxNXvykpimN6gwfzvxWz1xlnYuqzISD876MVXSfCsBuHx2xHq~1TAjFdMIxu-ZN~Xztv6ww1mWrzEPM73jvAxLWd9eRMU1sY-Tvpa~aG-g-cGNCOM7qW4BpcAq4XfqNVBnD17I-5FCdaeabJvhvvwncikljVL7S6tQSkgdLF-oBpqFDKGJQ3AlMp2Qu7euvFNPTi3xiXXYwxUVL5gQIAd6d7RAahtvv1Ev28y10KFSewuBM08OPeFVOUHKjqS1T-AnIYEGN0Wh-s6fZ-eWfX4oR20-KzXBPW~TBp-0ENGkzhH32lJo-wsgwoKZtPcG0nkpNOFg__",
         "price": 54.99,
         "colors": ["#0000ff"],
         "sizes": ["s", "m", "l", "xl"],
