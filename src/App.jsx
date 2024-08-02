@@ -14,6 +14,7 @@ import AllProudcts from "./pages/AllProudcts.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
 import Cart from "./pages/Cart.jsx";
 import AdminDash from "./pages/AdminDash.jsx";
+import Checkout from "./pages/Checkout.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -62,6 +63,14 @@ const router = createBrowserRouter(
             const adminCheck = await axios.get("/api/adminCheck")
             const products = await axios.get("/api/products")
             return {isAdmin: adminCheck.data, products: products.data}
+          }}
+        />
+        <Route 
+          path="/checkout"
+          element={<Checkout/>}
+          loader={async () => {
+            const res = await axios.get('/api/cart')
+            return res.data
           }}
         />
     </Route>

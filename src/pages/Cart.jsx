@@ -10,7 +10,6 @@ const Cart = () => {
 
   const [subTotal, setSubTotal] = useState(0);
   const [shipping, setShipping] = useState(0);
-  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     let count = 0;
@@ -19,7 +18,6 @@ const Cart = () => {
     });
     setSubTotal(count.toFixed(2));
     setShipping((9.99 + count * 0.07).toFixed(2));
-    setTotal();
   }, [cart]);
 
   const cartCards = cart.map((item, i) => {
@@ -39,7 +37,7 @@ const Cart = () => {
           <Row>
             <Col>
               <p className="cart-info-text left">sub total</p>
-              <p className="cart-info-text left">estimated shipping</p>
+              <p className="cart-info-text left">est. shipping & tax</p>
             </Col>
             <Col>
               <p className="cart-info-text right">${subTotal}</p>
@@ -53,11 +51,11 @@ const Cart = () => {
             </Col>
             <Col>
               <p className="cart-info-total right">
-                ${Number(subTotal) + Number(shipping)}
+                ${(Number(subTotal) + Number(shipping)).toFixed(2)}
               </p>
             </Col>
           </Row>
-          <Button className="checkout-btn">continue to checkout</Button>
+          <Button className="checkout-btn" href="/checkout" disabled={cart.length <= 0}>continue to checkout</Button>
         </Col>
       </Row>
     </Container>
