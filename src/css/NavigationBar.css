@@ -217,3 +217,24 @@ button.register-btn {
     margin-top: 8px;
     margin-bottom: 40px;
 }
+
+.checkout-container.container {
+    display: flex;
+    margin: 0px;
+    align-items: center;
+    padding-top: 28px;
+    padding-left: 36px;
+    padding-right: 36px;
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+.return-cart-link.nav-link {
+    text-align: left;
+    font-weight: 600;
+}
+
+.return-cart-arrow {
+    padding-bottom: 2px;
+    padding-right: 8px;
+}

@@ -72,4 +72,7 @@ h2.cart-header {
     font-weight: 700;
     padding: 12px;
     margin-top: 24px;
+    &.disabled {
+        background-color: black;
+    }
 }

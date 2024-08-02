@@ -1,0 +1,113 @@
+.checkout-header {
+    text-align: left;
+    font-weight: 600;
+}
+
+.checkout-card.card {
+    border: none;
+    border-radius: 0px;
+    background-color: white;
+    margin-top: 24px;
+    text-align: left;
+    padding: 24px;
+    &:last-child {
+        margin-bottom: 40px;
+    }
+}
+
+.checkout-card-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout-card-body.card-body {
+    background-color: inherit;
+}
+
+.order-details.card {
+    background-color: inherit;
+    flex-direction: row;
+}
+
+.checkout-form-label {
+    font-size: 12px;
+    color: #484343;
+}
+
+.checkout-form-control.form-control {
+    border: 1px solid #484343;
+    border-radius: 0px;
+    height: 32px;
+    font-size: 12px;
+}
+
+.personal-info-row-2 {
+    margin-bottom: 40px;
+}
+
+.checkout-btn-row {
+    justify-content: center;
+}
+
+.checkout-card-btn {
+    margin-top: 24px !important;
+    margin-left: 12px;
+    margin-right: 12px;
+    max-width: 50% !important;
+    height: 44px;
+    border: none;
+}
+
+.checkout-save {
+    background-color: black;
+    color: white;
+}
+
+.checkout-cancel {
+    background-color: inherit;
+    color: black;
+}
+
+.state-select {
+    background-color: white;
+    color: black;
+    height: 32px;
+    font-size: 12px;
+    width: 100%;
+}
+
+.order-detail-img {
+    width: 149px;
+    height: 149px;
+    object-fit: cover;
+    margin: 8px;
+}
+
+.checkout-total-card.card {
+    border: none;
+    border-radius: 0px;
+    padding: 40px;
+    padding-top: 20px;
+    margin-top: 24px;
+}
+
+.checkout-total-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+.order-btn.btn {
+    border: none;
+    border-radius: 0px;
+    width: 100%;
+    background-color: black;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px;
+    margin-top: 24px;
+    &:disabled {
+        background-color: black;
+    }
+}
