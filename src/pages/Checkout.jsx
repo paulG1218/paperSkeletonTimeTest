@@ -73,9 +73,23 @@ const Checkout = () => {
     }
   };
 
-  const orderDetails = cart.map((item) => {
-    return <img src={item.image} alt={`image of ${item.title}`} className="order-detail-img"/>
-  })
+
+  const orderDetails = () => {
+    let returnArray = []
+    let orderCount = 0
+    if (cart.length > 4) {
+        for (let i = 0; i < 3; i++) {
+            const item = cart[i]
+            returnArray.push(<img src={item.image} alt={`image of ${item.title}`} className="order-detail-img"/>)
+        }
+        returnArray.push(<div className="extra-items-card"><h1>+{cart.length-3}</h1></div>)
+    } else {
+        cart.forEach((item) => {
+            returnArray.push(<img src={item.image} alt={`image of ${item.title}`} className="order-detail-img"/>)
+        })
+    }
+  return returnArray
+}
 
   return (
     <Container>
@@ -532,7 +546,7 @@ const Checkout = () => {
           </Card>
 
           <Card className="order-details checkout-card">
-            {orderDetails}
+            {orderDetails()}
             </Card>
 
           <Card className="payment checkout-card">

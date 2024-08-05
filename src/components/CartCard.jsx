@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import "../css/CartCard.css";
 import { useDispatch } from "react-redux";
@@ -11,12 +11,28 @@ const CartCard = ({ item, cartPos }) => {
 
   const [qtyState, setQtyState] = useState(quantity);
 
+  useEffect(() => {
+    setQtyState(quantity)
+  }, [quantity])
+  
+  console.log(qtyState)
+
   const handleChangeQuantity = async (e) => {
     e.target.blur();
-    console.log(e);
-    console.log("requesting...");
     const res = await axios.put("/api/editCart", {
       quantity: Number(qtyState),
+      cartPos: cartPos,
+    });
+    console.log(res.data);
+    dispatch({
+      type: "cartCheck",
+      payload: res.data,
+    });
+  };
+
+  const handleRemove = async () => {
+    const res = await axios.put("/api/editCart", {
+      quantity: 0,
       cartPos: cartPos,
     });
     console.log(res.data);
@@ -42,7 +58,9 @@ const CartCard = ({ item, cartPos }) => {
               </Card.Text>
             </Col>
             <Col className="cart-card-col-2">
-              <img src="/delete.svg" alt="remove" className="remove-svg" />
+            <button className="cart-remove-btn" onClick={() => handleRemove()}>
+              <img src="/delete.svg" alt="remove" className="remove-svg"/>
+            </button>
               <Card.Text className="cart-card-qty-text">
                 qty
                 <input

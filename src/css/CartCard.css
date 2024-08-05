@@ -68,3 +68,8 @@
     color: black;
     padding: 4px;
 }
+
+.cart-remove-btn {
+    background-color: inherit;
+    border: none;
+}

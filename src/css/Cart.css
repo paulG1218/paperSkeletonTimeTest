@@ -19,6 +19,7 @@ h2.cart-header {
     padding: 40px;
     text-align: left;
     max-width: 416px;
+    height: fit-content;
 }
 
 .cart-login-btn.btn {

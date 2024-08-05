@@ -27,6 +27,13 @@
 .order-details.card {
     background-color: inherit;
     flex-direction: row;
+    padding: 0px;
+    :first-child {
+        margin-left: 0px;
+    }
+    :last-child {
+        margin-right: 0px;
+    }
 }
 
 .checkout-form-label {
@@ -110,4 +117,13 @@
     &:disabled {
         background-color: black;
     }
+}
+
+.extra-items-card {
+    display: flex;
+    width: 149px;
+    height: 149px;
+    margin: 8px;
+    justify-content: center;
+    align-items: center;
 }
