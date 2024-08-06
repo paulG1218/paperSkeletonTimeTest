@@ -22,3 +22,9 @@ p.card-text {
     font-weight: 500;
     font-size: 14px;
 }
+
+.card-column.col {
+    min-width: fit-content;
+    padding-left: 4px;
+    padding-right: 4px;
+}

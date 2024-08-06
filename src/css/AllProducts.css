@@ -4,6 +4,8 @@
 
 .products-col.col {
     max-width: fit-content;
+    padding: 0px;
+    
 }
 
 .products-row.row {

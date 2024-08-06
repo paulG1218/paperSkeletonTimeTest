@@ -92,7 +92,7 @@ const AllProudcts = () => {
     for (let i = 0; i < categoryNames.length; i++) {
       returnArray.push(
         <NavLink
-          href={`/browse/${categoryNames[i]}`}
+          href={`/browse/${categoryNames[i]}?g=${gender}`}
           className="sidebar-category"
           style={{ color: category === categoryNames[i] ? "black" : "#7C7C7C" }}
         >
@@ -148,39 +148,6 @@ const AllProudcts = () => {
           }
         }
       }
-    }
-    returnArray.push(<h5 className="sidebar-title">shop by gender</h5>);
-    returnArray.push(
-      <NavLink
-        onClick={() =>
-          setSearchParams((prev) => {
-            prev.delete("g");
-            return prev;
-          })
-        }
-        className="sidebar-category"
-        style={{ color: gender ? "#7C7C7C" : "black" }}
-      >
-        all
-      </NavLink>
-    );
-    for (let i = 0; i < productOptions.genders.length; i++) {
-      returnArray.push(
-        <NavLink
-          onClick={() =>
-            setSearchParams((prev) => {
-              prev.set("g", productOptions.genders[i]);
-              return prev;
-            })
-          }
-          className="sidebar-category"
-          style={{
-            color: gender === productOptions.genders[i] ? "black" : "#7C7C7C",
-          }}
-        >
-          {productOptions.genders[i]}
-        </NavLink>
-      );
     }
     return returnArray;
   };
