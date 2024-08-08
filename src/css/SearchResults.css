@@ -1,0 +1,131 @@
+.results-header {
+    font-weight: 700;
+    text-align: left;
+}
+
+.results-sidebar-col.col {
+    flex: 0 0 auto;
+    width: 20%;
+}
+
+.results-sidebar-category.row {
+    text-align: left;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px;
+    &:first-child {
+        margin-top: 48px;
+    }
+    
+}
+
+.results-sidebar-count {
+    font-size: 16px;
+    font-weight: 500;
+    width: fit-content !important;
+    margin: 0px;
+    padding: 0px;
+    padding-top: 3px;
+}
+
+h4.results-sidebar-label {
+    font-weight: 400;
+    padding-left: 42px;
+    margin: 0px;
+    width: fit-content;
+    font-size: 22px;
+}
+
+.results-main-col.col {
+    padding: 0px;
+    margin-right: 15%;
+}
+
+.results-main-container.container {
+    margin-left: 0px;    
+    padding: 0px;
+}
+
+.results-options-row.row {
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.results-filter-select {
+    background-color: inherit;
+}
+
+.results-sort-by-dropdown.dropdown, .results-size-dropdown.dropdown{
+    float: left;
+    width: fit-content;
+    padding: 0px;
+}
+
+.results-sort-by-menu.dropdown-menu.show, .results-size-menu.dropdown-menu.show  {
+    border: none;
+    border-radius: 0px;
+    box-shadow: 0px 1px 2px 0px #0000004D;
+    padding: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    width: max-content;
+}
+
+.results-sort-by-toggle.btn.btn-primary, .results-size-toggle.btn.btn-primary {
+    background-color: inherit;
+    border: none;
+    border-radius: 0px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 0px;
+    margin-right: 30px;
+    &:hover {
+        background-color: inherit; 
+        color: inherit;
+    }
+    &.show {
+        background-color: inherit;
+        color: #C71E1E;
+    }
+}
+
+.results-size-menu-row.row {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.results-size-check.form-check {
+    width: fit-content;
+}
+
+.results-size-count {
+    font-size: 14px;
+    padding-right: 0px !important;
+    padding-left: 40px !important;
+    margin: 0px;
+    width: fit-content !important;
+    font-weight: 500;
+}
+
+.results-product-count-row.row {
+    text-align: left;
+    margin: 0px;
+    align-items: center;
+}
+
+p.results-product-count {
+    padding: 0px;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.results-products-row.row {
+    margin: 0px;
+}

@@ -12,7 +12,6 @@ const AllProudcts = () => {
 
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const searchTerm = searchParams.get("q");
   const gender = searchParams.get("g");
   const subcategory = searchParams.get("sc");
   const tag = searchParams.get("tag");
@@ -34,12 +33,11 @@ const AllProudcts = () => {
 
   useEffect(() => {
     getProducts();
-  }, [sortState, searchTerm, page, subcategory, gender, tag]);
+  }, [sortState, page, subcategory, gender, tag]);
 
   useEffect(() => {
     setProductCardsState(
       products.map((product) => {
-        if (!searchTerm || product.title.toLowerCase().includes(searchTerm)) {
           return (
             <ProductCard
               key={product.productId}
@@ -50,7 +48,6 @@ const AllProudcts = () => {
               price={product.price}
             />
           );
-        }
       })
     );
   }, [products]);

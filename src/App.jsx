@@ -15,6 +15,7 @@ import AddProduct from "./pages/AddProduct.jsx";
 import Cart from "./pages/Cart.jsx";
 import AdminDash from "./pages/AdminDash.jsx";
 import Checkout from "./pages/Checkout.jsx";
+import SearchResults from "./pages/SearchResults.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -72,6 +73,10 @@ const router = createBrowserRouter(
             const res = await axios.get('/api/cart')
             return res.data
           }}
+        />
+        <Route 
+          path="/searchResults" 
+          element={<SearchResults/>}
         />
     </Route>
   )

@@ -87,7 +87,7 @@ const handlers = {
 
   getProducts: async (req, res) => {
     const { category } = req.params;
-    const { sort, page = 1, itemsPerPage = 2, subcategory, tag, gender } = req.query;
+    const { sort, page = 1, itemsPerPage = 12, subcategory, tag, gender } = req.query;
     const determineOrder = () => {
       switch (sort) {
         case "price: high-low":
@@ -237,6 +237,80 @@ const handlers = {
     } else {
         res.json(false)
     }
+  },
+
+  getSearchProducts: async (req, res) => {
+    const { search, sort, page = 1, itemsPerPage = 12, category, gender, initial } = req.query;
+
+    const productsQuery = async () => {
+      let whereClause = {};
+
+      if (category !== 'all' && !initial) {
+          whereClause.category = category;
+      }
+
+      if (gender && gender !== 'null' && !initial) {
+          whereClause[Op.or] = [
+              { gender: gender },
+              { gender: "unisex" }
+          ];
+      }
+
+      const searchStr = `%${search}%`
+  
+      const products = await Product.findAll({
+          where: {
+            [Op.or]: [
+              {title: 
+                {[Op.iLike]: searchStr}
+              },
+              {category: 
+                {[Op.iLike]: searchStr}
+              },
+              {subcategory: 
+                {[Op.iLike]: searchStr}
+              },
+              {tag: 
+                {[Op.iLike]: searchStr}
+              },
+            ],
+            ...whereClause
+          },
+          order: sort,
+          offset: page * itemsPerPage,
+          limit: itemsPerPage,
+      });
+
+      const count = await Product.findAndCountAll({
+          where: {
+            [Op.or]: [
+              {title: 
+                {[Op.iLike]: searchStr}
+              },
+              {category: 
+                {[Op.iLike]: searchStr}
+              },
+              {subcategory: 
+                {[Op.iLike]: searchStr}
+              },
+              {tag: 
+                {[Op.iLike]: searchStr}
+              },
+            ],
+            ...whereClause
+          }
+
+      });
+  
+      return { products, count: count.count };
+  };
+  const {products, count} = await productsQuery()
+    console.log(count)
+
+    res.json({
+      products: products,
+      count: count,
+    });
   }
 };
 

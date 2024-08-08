@@ -57,6 +57,8 @@ app.get("/api/adminCheck", handlers.adminCheck)
 
 app.get("/api/browse/:category", handlers.getProducts);
 
+app.get("/api/getSearchProducts", handlers.getSearchProducts);
+
 ViteExpress.listen(app, port, () =>
   console.log(`Server is listening on http://localhost:${port}`)
 );
