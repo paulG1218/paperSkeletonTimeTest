@@ -87,7 +87,7 @@ const handlers = {
 
   getProducts: async (req, res) => {
     const { category } = req.params;
-    const { sort, page = 1, itemsPerPage = 2, subcategory, tag, gender } = req.query;
+    const { sort, page = 1, itemsPerPage = 12, subcategory, tag, gender } = req.query;
     const determineOrder = () => {
       switch (sort) {
         case "price: high-low":
@@ -149,7 +149,7 @@ const handlers = {
   },
 
   AddProduct: async (req, res) => {
-    const { title, description, image, price, colors, sizes, tags } = req.body;
+    const { title, description, image, price, colors, sizes, gender, category, subcategory, tag } = req.body;
 
     const product = await Product.findOne({
       where: {
@@ -171,7 +171,10 @@ const handlers = {
         price: price,
         colors: colors,
         sizes: sizes,
-        tags: tags,
+        gender: gender,
+        category: category,
+        subcategory: subcategory,
+        tag: tag,
       });
       res.json({
         message: "product created",
@@ -237,6 +240,60 @@ const handlers = {
     } else {
         res.json(false)
     }
+  },
+
+  getSearchProducts: async (req, res) => {
+    const { search, sort, page = 1, itemsPerPage = 12 } = req.query;
+
+    const order = sort.split(',') || ["", ""]
+
+      const searchStr = `%${search}%`
+  
+      const products = await Product.findAll({
+          where: {
+            [Op.or]: [
+              {title: 
+                {[Op.iLike]: searchStr}
+              },
+              {category: 
+                {[Op.iLike]: searchStr}
+              },
+              {subcategory: 
+                {[Op.iLike]: searchStr}
+              },
+              {tag: 
+                {[Op.iLike]: searchStr}
+              },
+            ]
+          },
+          order: [order],
+          offset: page * itemsPerPage,
+          limit: itemsPerPage,
+      });
+
+      const count = await Product.findAndCountAll({
+          where: {
+            [Op.or]: [
+              {title: 
+                {[Op.iLike]: searchStr}
+              },
+              {category: 
+                {[Op.iLike]: searchStr}
+              },
+              {subcategory: 
+                {[Op.iLike]: searchStr}
+              },
+              {tag: 
+                {[Op.iLike]: searchStr}
+              },
+            ]
+          }
+      });
+
+    res.json({
+      products: products,
+      count: count,
+    });
   }
 };
 

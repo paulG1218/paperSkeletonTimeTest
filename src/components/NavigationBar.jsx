@@ -15,10 +15,11 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineClose } from "react-icons/md";
 import "../css/NavigationBar.css";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const NavigationBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -118,10 +119,8 @@ const NavigationBar = () => {
 
   const handleSearch = (e) => {
     e.target.blur();
-    setSearchParams({ q: searchState });
+    window.location.href = `/searchResults?q=${searchState}`
   };
-
-  console.log(window.location.href.includes('checkout'))
 
   if (!window.location.href.includes('checkout')) {
     return (
@@ -221,7 +220,6 @@ const NavigationBar = () => {
                   onReset={(e) => console.log(e)}
                   onChange={(e) => {
                     setSearchState(e.target.value);
-                    console.log(e);
                   }}
                   onKeyUp={(e) => e.key === "Enter" && handleSearch(e)}
                 />
