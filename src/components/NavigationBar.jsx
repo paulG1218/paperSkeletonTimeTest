@@ -122,8 +122,6 @@ const NavigationBar = () => {
     window.location.href = `/searchResults?q=${searchState}`
   };
 
-  console.log(window.location.href.includes('checkout'))
-
   if (!window.location.href.includes('checkout')) {
     return (
       <>
@@ -222,7 +220,6 @@ const NavigationBar = () => {
                   onReset={(e) => console.log(e)}
                   onChange={(e) => {
                     setSearchState(e.target.value);
-                    console.log(e);
                   }}
                   onKeyUp={(e) => e.key === "Enter" && handleSearch(e)}
                 />

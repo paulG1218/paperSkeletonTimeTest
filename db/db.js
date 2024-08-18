@@ -7,7 +7,6 @@ async function connectToDB(dbURI) {
     logging: false,
     define: {
       underscored: true,
-      timestamps: false,
     },
   });
 

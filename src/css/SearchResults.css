@@ -1,6 +1,7 @@
 .results-header {
     font-weight: 700;
     text-align: left;
+    margin-top: 16px;
 }
 
 .results-sidebar-col.col {
@@ -36,6 +37,7 @@ h4.results-sidebar-label {
     margin: 0px;
     width: fit-content;
     font-size: 22px;
+    cursor: pointer;
 }
 
 .results-main-col.col {

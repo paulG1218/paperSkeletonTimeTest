@@ -149,7 +149,7 @@ const handlers = {
   },
 
   AddProduct: async (req, res) => {
-    const { title, description, image, price, colors, sizes, tags } = req.body;
+    const { title, description, image, price, colors, sizes, gender, category, subcategory, tag } = req.body;
 
     const product = await Product.findOne({
       where: {
@@ -171,7 +171,10 @@ const handlers = {
         price: price,
         colors: colors,
         sizes: sizes,
-        tags: tags,
+        gender: gender,
+        category: category,
+        subcategory: subcategory,
+        tag: tag,
       });
       res.json({
         message: "product created",
@@ -240,21 +243,9 @@ const handlers = {
   },
 
   getSearchProducts: async (req, res) => {
-    const { search, sort, page = 1, itemsPerPage = 12, category, gender, initial } = req.query;
+    const { search, sort, page = 1, itemsPerPage = 12 } = req.query;
 
-    const productsQuery = async () => {
-      let whereClause = {};
-
-      if (category !== 'all' && !initial) {
-          whereClause.category = category;
-      }
-
-      if (gender && gender !== 'null' && !initial) {
-          whereClause[Op.or] = [
-              { gender: gender },
-              { gender: "unisex" }
-          ];
-      }
+    const order = sort.split(',') || ["", ""]
 
       const searchStr = `%${search}%`
   
@@ -273,10 +264,9 @@ const handlers = {
               {tag: 
                 {[Op.iLike]: searchStr}
               },
-            ],
-            ...whereClause
+            ]
           },
-          order: sort,
+          order: [order],
           offset: page * itemsPerPage,
           limit: itemsPerPage,
       });
@@ -296,16 +286,9 @@ const handlers = {
               {tag: 
                 {[Op.iLike]: searchStr}
               },
-            ],
-            ...whereClause
+            ]
           }
-
       });
-  
-      return { products, count: count.count };
-  };
-  const {products, count} = await productsQuery()
-    console.log(count)
 
     res.json({
       products: products,
