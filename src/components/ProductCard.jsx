@@ -5,7 +5,7 @@ import "../css/ProductCard.css";
 const ProductCard = ({ title, description, image, price, productId }) => {
   return (
     <Col className="card-column">
-      <NavLink href={`/products/${productId}`}>
+      <NavLink href={`/products/${productId}`} className="product-link">
         <Card className="productCard">
           <Card.Img
             src={image}

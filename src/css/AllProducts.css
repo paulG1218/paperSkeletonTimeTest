@@ -3,13 +3,13 @@
 }
 
 .products-col.col {
-    max-width: fit-content;
+    width: fit-content;
     padding: 0px;
     
 }
 
 .products-row.row {
-    max-width: 966px;
+    justify-content: center;
     margin-top: 48px;
 }
 

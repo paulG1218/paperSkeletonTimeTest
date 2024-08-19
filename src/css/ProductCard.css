@@ -1,7 +1,11 @@
 .productCard.card {
     border: none;
     text-align: left;
-    width: 306px;
+    width: min-content;
+}
+
+.product-link {
+    max-width: fit-content;
 }
 
 div.card-body {
@@ -11,6 +15,7 @@ div.card-body {
 
 img.card-img {
     border-radius: 0;
+    width: 306px;
 }
 
 .card-title.h5 {
@@ -24,7 +29,6 @@ p.card-text {
 }
 
 .card-column.col {
-    min-width: fit-content;
     padding-left: 4px;
     padding-right: 4px;
 }
