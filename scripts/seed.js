@@ -1,6 +1,6 @@
 import { User, Product, db } from "../db/model.js";
-import userData from "./data/users.json" assert { type: "json" };
-import productData from "./data/products.json" assert { type: "json" };
+import userData from "./data/users.json" with { type: "json" };
+import productData from "./data/products.json" with { type: "json" };
 
 console.log("Syncing database...");
 await db.sync({ force: true });

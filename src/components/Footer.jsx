@@ -28,13 +28,13 @@ const Footer = () => {
           </Container>
         </Navbar>
         <Navbar className="footer bottom">
-          <Container fluid>
+          <Container fluid className="footer-container">
             <Col className="news-letter" xs={6}>
               <h2 className="news-letter">Catch every deal.</h2>
               <h3 className="news-letter">
                 Subscribe to our newsletter for 10% off.
               </h3>
-              <InputGroup>
+              <InputGroup className="subscribe-group">
                 <Form.Control
                   className="subscribe-input"
                   placeholder="enter your email"

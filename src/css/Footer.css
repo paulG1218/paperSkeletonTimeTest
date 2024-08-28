@@ -5,6 +5,7 @@
 .footer.bottom {
     margin-bottom: 0;
     padding-left: 72px;
+    flex-wrap: wrap;
 }
 
 .footer.top {
@@ -53,6 +54,8 @@ a.footer-link {
     text-align: left;
     height: 398px;
     vertical-align: top;
+    padding-right: 24px;
+    min-width: fit-content;
 }
 
 .input-group {
@@ -92,4 +95,32 @@ a.footer-link {
 div.footer-link.col {
     vertical-align: top;
     height: 398px;
+    min-width: fit-content;
+}
+
+@media (max-width: 1000px) {
+    .news-letter.col-6 {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .footer.bottom {
+        padding-left: 0px;
+    }
+    .subscribe-group {
+        justify-content: center;
+    }
+    .footer-container {
+        justify-content: space-around !important;
+    }
+    .footer-link.col {
+        max-width: fit-content;
+    }
+    .footer.top {
+        padding-left: 3vw;
+    }
 }
