@@ -31,4 +31,13 @@ p.card-text {
 .card-column.col {
     padding-left: 4px;
     padding-right: 4px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 615px) {
+    img.card-img {
+        width: 50vw;
+        height: 80vw;
+    }
 }
