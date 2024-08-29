@@ -93,7 +93,7 @@ const Checkout = () => {
 
   return (
     <Container>
-      <Row>
+      <Row className="checkout-row">
         <h1 className="checkout-header">Checkout</h1>
         <Col>
           <Card className="personal-info checkout-card">

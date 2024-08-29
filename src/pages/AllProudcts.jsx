@@ -152,6 +152,7 @@ const AllProudcts = () => {
   return (
     <Container fluid className="products-container">
       <h3 className="products-header">the hottest threads for staying cool</h3>
+      <h3 className="category-header">shop {gender ? gender : category}</h3>
       <p className="products-header">these things are sellin like hotcakes</p>
       <Dropdown className="sort-by-dropdown">
         <Dropdown.Toggle id="dropdown-basic" className="sort-by-dropdown">
@@ -185,7 +186,7 @@ const AllProudcts = () => {
           {filterLinks()}
         </Col>
         <Col className="products-col">
-          <Row xs={3} className="products-row">
+          <Row xs={2} lg={2} xl={3} className="products-row">
             {productCardsState &&
             productCardsState.every((a) => a === undefined) ? (
               <Col xs={{ span: 12 }} className="no-results">
@@ -197,7 +198,7 @@ const AllProudcts = () => {
             )}
           </Row>
         </Col>
-        <Col xs={{span: 2}}></Col>
+        <Col xs={{span: 1}} lg={{span: 1}} xl={{span: 2}} className="right-spacer-col"></Col>
       </Row>
       <button className="pagination-btn" onClick={() => setPage(0)}>
         {"<<"}

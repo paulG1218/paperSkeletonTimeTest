@@ -1,0 +1,73 @@
+.mobile-banner-container.container {
+    margin: 0px;
+    padding: 0px;
+    max-width: fit-content;
+    position: relative;
+    justify-content: center;
+  filter: contrast(70%);
+  display: flex;
+}
+
+.mobile-banner-img {
+    width: 100vw;
+    height: 730px;
+    object-fit: cover;
+}
+
+.mobile-banner-overlay {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 10%;
+}
+
+h1.mobile-banner-1{
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 80px;
+    max-width: min-content;
+    align-self: center;
+}
+
+h3.mobile-banner-1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+h5.mobile-banner-1 {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+    max-width: fit-content;
+    align-self: center;
+}
+h4.mobile-banner-1 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    max-width: fit-content;
+    align-self: center;
+}
+
+button.mobile-banner-1 {
+    background-color: #36E15C;
+    color: black;
+    width: 195px;
+    height: 64px;
+    margin-top: 24px;
+    border: none;
+    align-self: center;
+    transform: translate(0%, 300%);
+    &:hover {
+        background-color: #36E15C;
+    }
+}
+
+@media (max-width: 405px) {
+    h1.mobile-banner-1 {
+        font-size: 14vw;
+        line-height: 15vw;
+    }
+}

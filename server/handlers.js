@@ -1,6 +1,6 @@
 import { Product, User } from "../db/model.js";
 import { Op } from "sequelize";
-import productOptions from "../src/productOptions.json" assert { type: "json" };
+import productOptions from "../src/productOptions.json" with { type: "json" };
 
 const handlers = {
   login: async (req, res) => {

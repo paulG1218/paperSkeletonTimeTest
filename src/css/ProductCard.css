@@ -1,7 +1,12 @@
 .productCard.card {
     border: none;
     text-align: left;
-    width: 306px;
+    width: min-content;
+    background-color: inherit;
+}
+
+.product-link {
+    max-width: fit-content;
 }
 
 div.card-body {
@@ -11,6 +16,8 @@ div.card-body {
 
 img.card-img {
     border-radius: 0;
+    width: 306px;
+    padding: 4px;
 }
 
 .card-title.h5 {
@@ -24,7 +31,15 @@ p.card-text {
 }
 
 .card-column.col {
-    min-width: fit-content;
-    padding-left: 4px;
-    padding-right: 4px;
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+    max-width: 48%;
+}
+
+@media (max-width: 688px) {
+    img.card-img {
+        width: 50vw;
+        height: 80vw;
+    }
 }
