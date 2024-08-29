@@ -3,8 +3,8 @@
   width: 100vw;
   margin: 0 auto;
   text-align: center;
-  color: #000;
-  background-color: #FAF9F8;
+  color: var(--text-color);
+  background-color: var(--main-background);
   min-height: 100vh;
 }
 

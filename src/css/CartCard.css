@@ -3,6 +3,7 @@
     border-radius: 0px;
     padding: 24px;
     flex-direction: row;
+    background-color: var(--second-background);
 }
 
 .cart-card-image.card-img {
@@ -12,11 +13,12 @@
 }
 
 .cart-card-body.card-body {
-    background-color: white;
+    background-color: var(--second-background);
+    color: var(--text-color);
 }
 
 .cart-card-title {
-    background-color: white;
+    background-color: var(--second-background);
     margin-bottom: 4px;
 }
 
@@ -39,11 +41,11 @@
 }
 
 .cart-card-size-button {
-    color: black;
-    background-color: white;
+    color: var(--text-color);
+    background-color: var(--second-background);
     min-width: 24px;
     height: 24px;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     font-weight: 600;
     font-size: 14px;
     text-align: center;
@@ -62,14 +64,15 @@
 
 .cart-card-qty-input {
     margin-left: 8px;
-    background-color: white;
-    border: 1px solid black;
+    background-color: var(--second-background);
+    border: 1px solid var(--text-color);
     max-width: 60%;
-    color: black;
+    color: var(--text-color);
     padding: 4px;
 }
 
 .cart-remove-btn {
     background-color: inherit;
     border: none;
+    filter: var(--svg-filter);
 }

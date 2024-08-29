@@ -41,8 +41,8 @@ const Product = () => {
         className="size-radio"
         key={i}
         style={{
-          backgroundColor: `${sizeRadioState === i ? "black" : "white"}`,
-          color: `${sizeRadioState === i ? "white" : "black"}`,
+          backgroundColor: `${sizeRadioState === i ? "var(--text-color)" : "var(--second-background)"}`,
+          color: `${sizeRadioState === i ? "var(--second-background)" : "var(--text-color)"}`,
         }}
         onClick={() => {
           setSizeRadioState(i);

@@ -15,7 +15,7 @@ h2.cart-header {
 
 .cart-info-col.col {
     margin-top: 96px;
-    background-color: white;
+    background-color: var(--second-background);
     padding: 40px;
     text-align: left;
     max-width: 416px;
@@ -24,10 +24,10 @@ h2.cart-header {
 
 .cart-login-btn.btn {
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     border-radius: 0px;
-    background-color: white;
-    color: black;
+    background-color: var(--second-background);
+    color: var(--text-color);
     font-weight: 700;
     font-size: 14px;
     margin-bottom: 24px;

@@ -2,7 +2,8 @@
     border: none;
     text-align: left;
     width: min-content;
-    background-color: inherit;
+    background-color: var(--main-background);
+    color: var(--text-color);
 }
 
 .product-link {
@@ -11,7 +12,7 @@
 
 div.card-body {
     padding-left: 0;
-    background-color: #FAF9F8;
+    background-color: var(--main-background);
 }
 
 img.card-img {

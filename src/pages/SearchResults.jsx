@@ -97,7 +97,7 @@ const SearchResults = () => {
           setCategory("")
           setGender("")
           }}>
-            <h4 className='results-sidebar-label' style={{color: newArrivalFilter ? "red" : "black"}}>new arrivals</h4>
+            <h4 className='results-sidebar-label' style={{color: newArrivalFilter ? "red" : "var(--text-color)"}}>new arrivals</h4>
             <p className='results-sidebar-count'>{filterCount.new}</p>
         </Row>
         <Row className='results-sidebar-category' onClick={() => {
@@ -105,7 +105,7 @@ const SearchResults = () => {
           setCategory("")
           setNewArrivalFilter("")
           }}>
-            <h4 className='results-sidebar-label' style={{color: gender === "men" ? "red" : "black"}}>men</h4>
+            <h4 className='results-sidebar-label' style={{color: gender === "men" ? "red" : "var(--text-color)"}}>men</h4>
             <p className='results-sidebar-count'>{filterCount.men}</p>
         </Row>
         <Row className='results-sidebar-category' onClick={() => {
@@ -113,7 +113,7 @@ const SearchResults = () => {
           setCategory("")
           setNewArrivalFilter("")
           }}>
-            <h4 className='results-sidebar-label' style={{color: gender === "women" ? "red" : "black"}}>women</h4>
+            <h4 className='results-sidebar-label' style={{color: gender === "women" ? "red" : "var(--text-color)"}}>women</h4>
             <p className='results-sidebar-count'>{filterCount.women}</p>
         </Row>
         <Row className='results-sidebar-category' onClick={() => {
@@ -121,7 +121,7 @@ const SearchResults = () => {
           setGender("")
           setNewArrivalFilter("")
           }}>
-            <h4 className='results-sidebar-label' style={{color: category === "accessories" ? "red" : "black"}}>accessories</h4>
+            <h4 className='results-sidebar-label' style={{color: category === "accessories" ? "red" : "var(--text-color)"}}>accessories</h4>
             <p className='results-sidebar-count'>{filterCount.accessories}</p>
         </Row>
         <Row className='results-sidebar-category' onClick={() => {
@@ -129,7 +129,7 @@ const SearchResults = () => {
           setGender("")
           setNewArrivalFilter("")
           }}>
-            <h4 className='results-sidebar-label' style={{color: category === "shoes" ? "red" : "black"}}>shoes</h4>
+            <h4 className='results-sidebar-label' style={{color: category === "shoes" ? "red" : "var(--text-color)"}}>shoes</h4>
             <p className='results-sidebar-count'>{filterCount.shoes}</p>
         </Row>
         </Col>

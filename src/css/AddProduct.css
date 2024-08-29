@@ -6,7 +6,7 @@ button.add-color {
     border: none;
     font-size: 32px;
     background-color: #FAF9F8;
-    color: black;
+    color: var(--text-color);
 }
 
 button.remove-color {
@@ -17,7 +17,7 @@ button.remove-color {
     border: none;
     font-size: 32px;
     background-color: #FAF9F8;
-    color: black;
+    color: var(--text-color);
 }
 
 .color-select {
