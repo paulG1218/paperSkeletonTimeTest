@@ -218,7 +218,7 @@ button.register-btn {
     margin-bottom: 40px;
 }
 
-.checkout-container.container {
+.checkout-nav-container.container {
     display: flex;
     margin: 0px;
     align-items: center;

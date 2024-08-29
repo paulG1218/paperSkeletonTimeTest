@@ -167,7 +167,7 @@ const NavigationBar = () => {
     );
   } else {
     return (
-      <Container className="checkout-container">
+      <Container className="checkout-nav-container">
           <Col>
             <NavLink className="return-cart-link" href="/cart">
               <img src="/arrow_back.svg" alt="<--" className="return-cart-arrow"/>

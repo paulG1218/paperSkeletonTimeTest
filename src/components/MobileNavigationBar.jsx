@@ -69,7 +69,7 @@ const MoblieNavigationBar = () => {
   
   const handleCloseSearch = () => setShowSearch(false);
   const handleOpenSearch = () => setShowSearch(true);
-
+  if (!window.location.href.includes('checkout')) {
   return (
     <>
       <LoginModal show={showLogin} handleClose={handleCloseLogin} />
@@ -181,6 +181,25 @@ const MoblieNavigationBar = () => {
       </Navbar>
     </>
   );
+}  else {
+  return (
+    <Container className="checkout-nav-container">
+        <Col className="back-to-cart-col">
+          <Nav.Link className="return-cart-link" href="/cart">
+            <img src="/arrow_back.svg" alt="<--" className="return-cart-arrow"/>
+            back to shopping cart</Nav.Link>
+        </Col>
+        <Col className="checkout-nav-logo-col">
+          <Navbar.Brand href="/" className="checkout-logo">
+            <h1 className="header-logo">
+              melon <img src="/melon-icon.svg" alt="logo" />
+            </h1>
+          </Navbar.Brand>
+        </Col>
+        <Col></Col>
+    </Container>
+  )
+}
 };
 
 export default MoblieNavigationBar;
