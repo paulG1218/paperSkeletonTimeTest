@@ -90,7 +90,7 @@ const SearchResults = () => {
   }, [products, gender, category, newArrivalFilter]);
 
   return (
-    <Row>
+    <Container className='results-container' fluid>
         <Col className='results-sidebar-col'>
         <Row className='results-sidebar-category' onClick={() => {
           setNewArrivalFilter(!newArrivalFilter)
@@ -174,12 +174,12 @@ const SearchResults = () => {
                     <Row className='results-product-count-row'>
                         <p className='results-product-count'>{productCount} products</p>
                     </Row>
-                <Row xs={3} className='results-products-row'>
+                <Row xs={2} xl={3} className='results-products-row'>
                     {productCardsState}
                 </Row>
             </Container>
         </Col>
-    </Row>
+    </Container>
   )
 }
 

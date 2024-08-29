@@ -3,6 +3,7 @@ import { Col, Container, Navbar, Nav, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams } from "react-router-dom";
 import LoginModal from "./LoginModal.jsx";
+import axios from "axios";
 import "../css/MobileNavigationBar.css";
 
 const MoblieNavigationBar = () => {

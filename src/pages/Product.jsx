@@ -97,7 +97,7 @@ const Product = () => {
   };
   return (
     <Container className="product-container">
-      <Row>
+      <Row className="product-row">
         <Col className="product-image">
           <img
             src={image}
