@@ -169,9 +169,12 @@ h6.best-sellers {
     }
     .shirts, .shorts, .hats, .athleisure {
         height: auto;
-        width: 398px;
+        width: 90vw;
         object-fit: cover;
         object-position: bottom left;
+    }
+    h1.mobile-banner-1 {
+        font-size: 14vw;
     }
   }
 

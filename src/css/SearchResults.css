@@ -158,6 +158,6 @@ p.results-product-count {
     }
     .results-products-row.row {
         min-width: 100vw;
-        justify-content: space-between;
+        justify-content: space-around;
     }
 }

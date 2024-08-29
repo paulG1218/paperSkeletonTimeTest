@@ -64,3 +64,10 @@ button.mobile-banner-1 {
         background-color: #36E15C;
     }
 }
+
+@media (max-width: 405px) {
+    h1.mobile-banner-1 {
+        font-size: 14vw;
+        line-height: 15vw;
+    }
+}

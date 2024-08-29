@@ -3,14 +3,16 @@
 }
 
 .products-col.col {
-    width: fit-content;
+    width: 100vw;
     padding: 0px;
-    
+    justify-content: center;
+    display: flex;
 }
 
 .products-row.row {
     justify-content: center;
     margin-top: 48px;
+    max-width: 100vw;
 }
 
 .products-container {

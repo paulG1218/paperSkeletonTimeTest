@@ -2,6 +2,7 @@
     border: none;
     text-align: left;
     width: min-content;
+    background-color: inherit;
 }
 
 .product-link {
@@ -16,6 +17,7 @@ div.card-body {
 img.card-img {
     border-radius: 0;
     width: 306px;
+    padding: 4px;
 }
 
 .card-title.h5 {
@@ -31,6 +33,8 @@ p.card-text {
 .card-column.col {
     display: flex;
     justify-content: center;
+    padding: 0px;
+    max-width: 48%;
 }
 
 @media (max-width: 688px) {
