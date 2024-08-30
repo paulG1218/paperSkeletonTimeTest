@@ -3,7 +3,6 @@ import { Container, Row, Col, NavLink, Dropdown } from "react-bootstrap";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard.jsx";
 import "../css/AllProducts.css";
-import { useSelector } from "react-redux";
 import productOptions from "../productOptions.json";
 import axios from "axios";
 

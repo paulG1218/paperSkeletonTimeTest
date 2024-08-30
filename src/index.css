@@ -12,6 +12,7 @@
   --logo-color: #E13636;
   --svg-filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(335deg) brightness(104%) contrast(107%);
   --favorite-background: #FEEBEB;
+  --switch-color: #000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,8 +20,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+.dark-mode {
   --text-color: #fff;
   --background-mint: #4A5266;
   --main-background: #282835;
@@ -29,5 +29,5 @@
   --logo-color: #FFECDA;
   --svg-filter: invert(100%) sepia(1%) saturate(0%) hue-rotate(280deg) brightness(109%) contrast(101%);
   --favorite-background: #BFC8E0;
+  --switch-color: #BFC8E0;
   }
-}

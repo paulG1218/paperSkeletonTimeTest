@@ -1,9 +1,9 @@
 div.banner-1.row {
     min-height: 566px;
-    max-width: 100vw;
     background-color: var(--background-mint);
     align-items: center;
     justify-content: space-around;
+    margin-right: 0px;
 }
 
 .banner-1.title {
