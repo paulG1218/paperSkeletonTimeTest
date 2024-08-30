@@ -3,6 +3,7 @@ import NavigationBar from "./components/NavigationBar.jsx";
 import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer.jsx";
 import MoblieNavigationBar from "./components/MobileNavigationBar.jsx";
+import DisplayModeSwitch from "./components/DisplayModeSwitch.jsx";
 
 const Root = () => {
   const [windowDimension, setWindowDimension] = useState(null);
@@ -20,7 +21,8 @@ const Root = () => {
 
 
   return (
-    <div>
+    <>
+      <DisplayModeSwitch/>
       {windowDimension < 768 ? 
       <MoblieNavigationBar/>
       :
@@ -28,7 +30,7 @@ const Root = () => {
       }
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 };
 

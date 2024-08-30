@@ -3,7 +3,6 @@ import { Container, Row, Col, NavLink, Dropdown } from "react-bootstrap";
 import { useLoaderData, useSearchParams } from "react-router-dom";
 import ProductCard from "../components/ProductCard.jsx";
 import "../css/AllProducts.css";
-import { useSelector } from "react-redux";
 import productOptions from "../productOptions.json";
 import axios from "axios";
 
@@ -81,7 +80,7 @@ const AllProudcts = () => {
       <NavLink
         href="/browse/all"
         className="sidebar-category"
-        style={{ color: category === "all" ? "black" : "#7C7C7C" }}
+        style={{ color: category === "all" ? "var(--text-color)" : "#7C7C7C" }}
       >
         all
       </NavLink>
@@ -91,7 +90,7 @@ const AllProudcts = () => {
         <NavLink
           href={`/browse/${categoryNames[i]}?g=${gender}`}
           className="sidebar-category"
-          style={{ color: category === categoryNames[i] ? "black" : "#7C7C7C" }}
+          style={{ color: category === categoryNames[i] ? "var(--text-color)" : "#7C7C7C" }}
         >
           {categoryNames[i]}
         </NavLink>
@@ -113,7 +112,7 @@ const AllProudcts = () => {
               className="sidebar-category subcategory"
               style={{
                 color:
-                  subcategory === subcategoryNames[i] ? "black" : "#7C7C7C",
+                  subcategory === subcategoryNames[i] ? "var(--text-color)" : "#7C7C7C",
               }}
             >
               {subcategoryNames[i]}

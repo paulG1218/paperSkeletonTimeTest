@@ -1,5 +1,5 @@
 .footer {
-    background-color: #FFECDA;
+    background-color: var(--nav-background);
 }
 
 .footer.bottom {
@@ -16,7 +16,7 @@
 .footer-logo h1 {
     font-size: 24px;
     font-weight: 700;
-    color: #E13636;
+    color: var(--logo-color);
     padding-top: 10px;
     margin-bottom: 70px;
 }
@@ -43,7 +43,7 @@ h5.footer-link {
 }
 
 a.footer-link {
-    color: black;
+    color: var(--text-color);
     text-align: left;
     font-size: 14px;
     font-weight: 600;
@@ -64,14 +64,14 @@ a.footer-link {
 
 .subscribe-input.form-control {
     max-height: 32px;
-    background-color: #FFECDA;
+    background-color: var(--nav-background);
     border-color: black;
     max-width: 20rem;
 }
 
 .subscribe-input.form-control:focus {
-    background-color: #FFECDA;
-    border-color: black;
+    background-color: var(--nav-background);
+    border-color: var(--text-color);
 }
 
 .subscribe-input.form-control::placeholder {

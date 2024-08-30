@@ -2,7 +2,8 @@ const initialState = {
     userId: null,
     isAdmin: false,
     email: null,
-    cart: []
+    cart: [],
+    isDark: false
   };
 
   const reducer = (state = initialState, action) => {
@@ -26,6 +27,12 @@ const initialState = {
             return {
                 ...state,
                 cart: action.payload
+            }
+        }
+        case "displayChange": {
+            return {
+                ...state,
+                isDark: action.payload
             }
         }
         default: {

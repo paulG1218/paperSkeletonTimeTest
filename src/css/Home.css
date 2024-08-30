@@ -1,9 +1,9 @@
 div.banner-1.row {
     min-height: 566px;
-    max-width: 100vw;
-    background-color: #EBF2ED;
+    background-color: var(--background-mint);
     align-items: center;
     justify-content: space-around;
+    margin-right: 0px;
 }
 
 .banner-1.title {
@@ -39,7 +39,7 @@ h4.banner-1 {
 
 button.banner-1 {
     background-color: #36E15C;
-    color: black;
+    color: var(--text-color);
     width: 195px;
     height: 64px;
     margin-top: 24px;
@@ -48,12 +48,11 @@ button.banner-1 {
 
 button.banner-1:hover {
     background-color: #36E15C;
-    color: black;
+    color: var(--text-color);
 }
 
 button.banner-1.btn.btn-primary:active {
     background-color: #36E15C;
-    color: black;
 }
 
 .banner-1-img-col.col {

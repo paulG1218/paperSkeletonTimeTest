@@ -45,13 +45,13 @@
 .product-option-label {
     font-size: 12px;
     font-weight: 400;
-    color: #655F5F;
+    color: var(--text-color);
 }
 
 .size-radio {
     min-width: 30px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid var(--text-color);
     font-weight: 600;
     font-size: 14px;
     text-align: center;
@@ -70,9 +70,8 @@
 }
 
 .favorite-btn {
-    background-color: #FEEBEB;
+    background-color: var(--favorite-background);
     border: none;
-    color: black;
     height: 40px;
     width: 40px;
     border-radius: 100%;
